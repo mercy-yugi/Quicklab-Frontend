@@ -62,13 +62,13 @@ const onSubmitHandler = (e) => {
 const submitting=()=>{
     const {first_name,last_name,username,password,level,} = user
     if (first_name && last_name && username && level && password){
-     axios.post("http://127.0.0.1:8000/Quicklab/register/",user )
+     axios.post("https://vast-reef-39990.herokuapp.com/Quicklab/register/",user )
 .then(res=>{
         console.log(res)
         toast('You have successfully been registered to Quick lab, Login to continue' )
         navigate("/login")
         reset();
-        refreshPage();
+        // refreshPage();
 
     
     })
