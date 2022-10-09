@@ -68,14 +68,17 @@ const submitting=()=>{
     console.log("users");
     if (first_name && last_name && username && level && password){
      axios.post("https://vast-reef-39990.herokuapp.com/Quicklab/register/",user )
+<<<<<<< HEAD
 // // .then(res => res.json())
+=======
+>>>>>>> 64b4690e8d31c7e366c1366f1d54366e8ab02670
 .then(res=>{
         res.headers("Access-Control-Allow-Origin", "*");
         console.log(res)
         toast('You have successfully been registered to Quick lab, Login to continue' )
         navigate("/login")
         reset();
-        refreshPage();
+        // refreshPage();
 
     
     })

@@ -49,7 +49,7 @@ const onSubmitHandler = () => {
     const submitting=()=>{
         const {username,password} = user
         if (username && password){
-         axios.post("http://127.0.0.1:8000/Quicklab/login/",user )
+         axios.post("https://vast-reef-39990.herokuapp.com/Quicklab/login/",user )
         .then(res=>{
             console.log(res.data)
                     reset();
