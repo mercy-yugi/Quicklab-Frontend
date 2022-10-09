@@ -1,8 +1,8 @@
-import './App.css';
+// import './App.css';
 import './login.css';
 import React, { useState, useEffect,useRef } from 'react';
 import { Link, useNavigate} from 'react-router-dom';
-import myimage from './Images/Group 76.png'
+import myimage from '../Images/Group 76.png'
 import { BsPersonFill } from "react-icons/bs";
 import { FaLock } from "react-icons/fa";
 import { yupResolver } from "@hookform/resolvers/yup";

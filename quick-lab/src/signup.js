@@ -29,6 +29,10 @@ function SignupForm() {
 
     })
 
+    useEffect(()=>{
+        console.log("some",user);
+    })
+
     const handleChange = e =>{
         const {name,value} = e.target
         setUser({
@@ -36,6 +40,7 @@ function SignupForm() {
         [name]:value
     
         })
+        
         }
 
 
@@ -45,7 +50,7 @@ function SignupForm() {
         username: yup.string().required(),
         level: yup.string().required(),
         password: yup.string().min(8).max(15).required(),
-        confirmPassword: yup.string().required().oneOf([yup.ref('password'), null])
+        // confirmPassword: yup.string().required().oneOf([yup.ref('password'), null])
 
       })
 
@@ -54,16 +59,18 @@ const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(formSchema),
       });
      
-const onSubmitHandler = (e) => {
-        e.preventDefault();
-    
-    }
+
     
 const submitting=()=>{
-    const {first_name,last_name,username,password,level,} = user
+   
+    const 
+    {first_name,last_name,username,password,level,} = user
+    console.log("users");
     if (first_name && last_name && username && level && password){
-     axios.post("http://127.0.0.1:8000/Quicklab/register/",user )
+     axios.post("https://vast-reef-39990.herokuapp.com/Quicklab/register/",user )
+// // .then(res => res.json())
 .then(res=>{
+        res.headers("Access-Control-Allow-Origin", "*");
         console.log(res)
         toast('You have successfully been registered to Quick lab, Login to continue' )
         navigate("/login")
@@ -89,18 +96,18 @@ const refreshPage = () => {
      
     return (
 
-            <form onSubmit={handleSubmit(onSubmitHandler)} >
+            <form onSubmit={handleSubmit(submitting)} >
             <div className='container'>
             <div className='image-container'>
             <img src={myimage} alt="woman" width={450} />
             </div>
             <div className='form-container'>
             <h3 className='headings'>Create an Account</h3>
-            <div class="firstname-1">
+            <div className="firstname-1">
             <div className='icons'>
                    <BsPersonFill/>
                 </div>
-                <div class="firstname">
+                <div className="firstname">
                 <input type="first_name" name="first_name" required placeholder='First Name'
                         {...register("first_name")}
                         onChange={handleChange}               
@@ -109,7 +116,7 @@ const refreshPage = () => {
                 </div>  
             </div>
 
-            <div class="lastname-1">
+            <div className="lastname-1">
                 <div className='icons'>
                    <BsPersonFill/>
                 </div>
@@ -122,7 +129,7 @@ const refreshPage = () => {
                 </div>
             </div>
 
-            <div class="username1">
+            <div className="username1">
             <div className='icons'>
                    <BsPersonFill/>
                 </div>
@@ -134,7 +141,7 @@ const refreshPage = () => {
                 {errors.UserName?.message}
                 </div>
             </div>
-            <div class="level-1">
+            <div className="level-1">
             <div className='icons'>
                    <AiFillLayout/>
                 </div>
@@ -147,11 +154,11 @@ const refreshPage = () => {
                 </div>
             </div>
 
-            <div class="password-1">
+            <div className="password-1">
              <div className='icons'>
              <FaLock />
             </div>  
-            <div class="password-1"> 
+            <div className="password-1"> 
                <input type="password" name="password"  required  placeholder=' Password'
                        {...register("password")}
                        onChange={handleChange}               
@@ -160,25 +167,25 @@ const refreshPage = () => {
                 </div>
             </div>
 
-            <div class="confirmpassword-1">
+            <div className="confirmpassword-1">
             <div className='icons'>
              <FaLock />
             </div> 
             < div className="confirmpassword">
                 <input  type="password" name="confirm password" required placeholder='Confirm password'
                       {...register("confirmpassword")}
-                      onChange={handleChange}               
+              
                       />
                 </div>
                 {errors.confirmPassword}
             </div>
-            
+             
 
-            <div class="signupbtn">
-                <button type='submit' onClick={submitting} >SignUp</button>
+            <div className="signupbtn">
+                <button type='submit'  >SignUp</button>
             </div>
 
-            <div class="login">
+            <div className="login">
                 <p>Already have an account? <span><Link style={{ color: '#00A9E5', textDecoration: 'inherit'}} to={'/login'}>Login</Link></span></p>
             </div>
         </div>
