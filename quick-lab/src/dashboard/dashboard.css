@@ -42,7 +42,7 @@
     color: rgb(247, 227, 9);
 }
 .main-container{
-    background-color: rgb(246, 255, 255);
+    background-color: #dcf0fc;
     display:flex ;
     /* color:#E4F2FB; */
 }
@@ -53,10 +53,7 @@
     width: 100%;
     border-radius:30px; */
 }
-.main-container .home-container-1 .prof{
-    /* margin-left:-50%; */
-    /* float: right; */
-}
+
 .profile{
     font-size:40px;
     color: #00A9E5;
@@ -75,10 +72,16 @@
     padding: 10px;
     width: 40vw;
     border-radius:30px;
+    border: none;
     margin-left: 25%
+    
 
 
 }
+.se_pro input:focus{
+    outline: none;
+}
+
 .se_pro .prof{
    float: right;
    margin-left: 37%;
