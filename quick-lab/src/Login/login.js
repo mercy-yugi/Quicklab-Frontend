@@ -15,6 +15,7 @@ toast.configure()
 
 
 function LoginForm() {
+    const navigate = useNavigate()
     
     const [user,setUser] = useState({
         username: "",
@@ -40,9 +41,9 @@ function LoginForm() {
 const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(formSchema),
       });
-const onSubmitHandler = () => {
-    //    e.preventDefault();
-    //    navigate("/login")
+const onSubmitHandler = (e) => {
+       e.preventDefault();
+    //    navigate("/home")
        reset();
     }
 
@@ -64,7 +65,7 @@ const onSubmitHandler = () => {
             
             toast('unable to login, make sure your username and password are correct')
         })
-        // navigate("/login")
+        navigate("/home")
         }
         else{
             console.log(user)
