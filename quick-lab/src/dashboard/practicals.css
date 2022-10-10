@@ -1,0 +1,40 @@
+.practical_container{
+    background-color: rgb(246, 255, 255);
+    margin-left: 5%;
+    width: 100%;
+}
+.all_practicals{
+    display: flex;
+}
+.see_all{
+    display: inline;
+    /* float: right; */
+    margin-left: 89%;
+    color: rgb(10, 152, 187);
+}
+
+.one{
+    background-color: rgb(241, 250, 252);
+    color: rgb(3, 50, 68);
+    padding: 3px;
+    width: 190px;
+    text-align: center;
+    margin: 2%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgb(153, 151, 151);
+    transition: transform 500ms ease;
+
+}
+.one:hover{
+    transform: scale(1.1);
+
+}
+.picture{
+    width: 100%;
+    border-radius: 10px;
+
+}
+.about_practical{
+    color: rgb(6, 107, 122);
+    margin-left: 2%;
+}

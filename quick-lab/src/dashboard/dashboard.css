@@ -1,7 +1,7 @@
 .home-container-1{
-    background-color: rgb(206, 223, 229);
+    background-color: white;
     width:20%;
-    height: 100vh;
+    height: auto;
     border-top-left-radius:10px;
     border-bottom-left-radius: 10px;
 }
@@ -36,12 +36,13 @@
     margin-left:32%;
     margin-top:-15%;
 }
-.smile{
+.home-container-1 .smile{
    margin-left: 45%;
    font-size:30px;
-    stroke: black;
+    color: rgb(247, 227, 9);
 }
 .main-container{
+    background-color: rgb(246, 255, 255);
     display:flex ;
     /* color:#E4F2FB; */
 }

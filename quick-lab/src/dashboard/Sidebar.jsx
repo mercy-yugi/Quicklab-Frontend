@@ -6,6 +6,7 @@ import logo from '../Images/Quicklab_logo.png';
 import '../dashboard/dashboard.css';
 import { FaPlus } from "react-icons/fa";
 import Select from 'react-select'
+import Practicals from './Practicals';
 
 
 const Sidebar = () => {
@@ -73,6 +74,7 @@ const Sidebar = () => {
         </div>
        
     </form>
+    <Practicals/>
     </div>
     </div>
   );
