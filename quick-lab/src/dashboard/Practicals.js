@@ -1,4 +1,4 @@
-import image from '../Images/practicalImage.jpeg'
+import image from '../Images/practicalImage.png'
 import './practicals.css'
 import { FaLongArrowAltRight } from "react-icons/fa";
 
@@ -13,25 +13,25 @@ const Practicals=()=>{
             <div className='one'>
                 <img className='picture' src={image} alt='practical'/>
                 <p className='practical_title'><b>Titration</b></p>
-                <p>Base-acid titration intended to hep students understand  the reactions  </p>
+                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
 
             <div className='one'>
                 <img className='picture' src={image} alt='practical'/>
                 <p className='practical_title'><b>Titration</b></p>
-                <p>Base-acid titration intended to hep students understand  the reactions  </p>
+                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
 
             <div className='one'>
                 <img className='picture' src={image} alt='practical'/>
                 <p className='practical_title'><b>Titration</b></p>
-                <p>Base-acid titration intended to hep students understand  the reactions  </p>
+                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
 
             <div className='one'>
                 <img className='picture' src={image} alt='practical'/>
                 <p className='practical_title'><b>Titration</b></p>
-                <p>Base-acid titration intended to hep students understand  the reactions  </p>
+                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
         </div>
 
@@ -41,25 +41,25 @@ const Practicals=()=>{
             <div className='one'>
                 <img className='picture' src={image} alt='practical'/>
                 <p className='practical_title'><b>Titration</b></p>
-                <p>Base-acid titration intended to hep students understand  the reactions  </p>
+                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
 
             <div className='one'>
                 <img className='picture' src={image} alt='practical'/>
                 <p className='practical_title'><b>Titration</b></p>
-                <p>Base-acid titration intended to hep students understand  the reactions  </p>
+                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
 
             <div className='one'>
                 <img className='picture' src={image} alt='practical'/>
                 <p className='practical_title'><b>Titration</b></p>
-                <p>Base-acid titration intended to hep students understand  the reactions  </p>
+                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
 
             <div className='one'>
                 <img className='picture' src={image} alt='practical'/>
                 <p className='practical_title'><b>Titration</b></p>
-                <p>Base-acid titration intended to hep students understand  the reactions  </p>
+                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
         </div>
 

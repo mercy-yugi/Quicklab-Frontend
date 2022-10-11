@@ -44,14 +44,8 @@
 .main-container{
     background-color: #dcf0fc;
     display:flex ;
+    height: 100vh;
     /* color:#E4F2FB; */
-}
-.main-container input{
-    margin-top:5%;
-    /* margin-left:15%; */
-    /* padding: 10px;
-    width: 100%;
-    border-radius:30px; */
 }
 
 .profile{
@@ -73,7 +67,9 @@
     width: 40vw;
     border-radius:30px;
     border: none;
-    margin-left: 25%
+    margin-left: 25%;
+    margin-top:5%;
+
     
 
 
