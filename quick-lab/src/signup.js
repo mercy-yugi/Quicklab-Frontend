@@ -12,6 +12,7 @@ import * as yup from 'yup';
 import axios from "axios";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import styled from 'styled-components';
 toast.configure()
 
 
@@ -86,6 +87,12 @@ const submitting=()=>{
 const refreshPage = () => {
     navigate(0);
 }
+
+const DropDownContainer = styled("div")``;
+const DropDownHeader = styled("div")``;
+const DropDownListContainer = styled("div")``;
+const DropDownList = styled("ul")``;
+const ListItem = styled("li")``;
      
     return (
 
@@ -138,11 +145,18 @@ const refreshPage = () => {
             <div className='icons'>
                    <AiFillLayout/>
                 </div>
+
                 <div className='level'>
-                <input  type="text" name="level" required placeholder='Level'
+                    <DropDownListContainer><input  type="text" name="level" required placeholder='Level'
                       {...register("level")}
                       onChange={handleChange}               
-                      />
+                      /></DropDownListContainer>
+                      <DropDownList>
+                        <ListItem>Form 1</ListItem>
+                        <ListItem>Form 2</ListItem>
+                        <ListItem>Form 3</ListItem>
+                        <ListItem>Form 4</ListItem>
+                        </DropDownList>
                 {errors.level?.message}
                 </div>
             </div>
