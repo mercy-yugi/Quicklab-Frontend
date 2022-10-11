@@ -237,7 +237,7 @@ body{
 }
 .username1 .icons{
     color: #00A9E5;
-    margin-top:7%;
+    margin-top:8%;
     font-size:18px;
 }
 
@@ -250,6 +250,7 @@ body{
     box-shadow: rgba(38, 37, 37, 0.2) 0px 2px 8px 0px;
     color: #969797;
     margin-top: 4%;
+    margin-bottom: 3.5%;
     border-radius: 2px;
    }
 .username-1 input:focus{
@@ -262,24 +263,19 @@ body{
 }
 .level-1 .icons{
     color: #00A9E5;
-    margin-top:8%; 
+    margin-top:4.5%; 
 }
-.level input{   
-    margin-left: 8.5%;   
-    padding: 10px;   
-    width: 400px;
-    border-style: none; 
-    box-shadow: rgba(38, 37, 37, 0.2) 0px 2px 8px 0px;   
-    color: #969797;
-    margin-top: 4%;
-    /* margin-bottom:3%; */
-    border-radius: 2px;
-
+.dropdown {   
+    margin-left: 7.8%;   
+    padding: 2px;   
+    width: 426px;
+    border-style: none;  
+    border: none;
+    content: '" "'; 
+    border-radius: 1px;
+    font-size: 13px;
    }
-.level input:focus{
-    outline: none;
-    box-shadow: none;
-}
+
 
 .confirmpassword input{   
      margin-left: 8.2%;   
@@ -298,7 +294,8 @@ body{
 }
 .confirmpassword-1 .icons{
     color: #00A9E5;
-    margin-top:7%;
+    margin-top:8%;
+    margin-bottom:2%;
 }
 
 .confirmpassword input:focus{
@@ -313,13 +310,13 @@ body{
 
 .password-1 .icons{
     color: #00A9E5;
-    margin-top:7%;
+    margin-top: 20%;
     font-size:15px;
 }
 
 .password-1 input{   
     margin-left: 7.8%; 
-    margin-top:3.6%; 
+    margin-top:2.6%; 
     padding: 9px; 
     border-style: none; 
     border-radius:2px;  
