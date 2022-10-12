@@ -21,12 +21,27 @@ const Sidebar = () => {
     { value: 'Physics', label: 'Physics' },
     { value: 'Chemistry', label: 'Chemistry' },
     { value: 'Biology', label: 'Biology' },
+    // <select
+    //   id='Subjects'>
+    //     <option value='physics'>Physics</option>
+    //     <option value='physics'>Physics</option>
+    //     <option value='physics'>Physics</option>
+    //   </select>
 
   ]
   const topics = [
     { value: 'Titration', label: 'Titration' },
+    { value: 'ThemoChemistry', label: 'ThemoChemistry' },
+    { value: 'Flame Test', label: 'Flame Test' },
+    { value: 'Solubility', label: 'Solubility' },
     { value: 'Pendulumbob', label: 'Pendulumbob' },
-    { value: 'Electrolysis', label: 'Electrolysis' },
+    { value: 'Thermal Expansion', label: 'Thermal Expansion' },
+    { value: 'Heat Transfer', label: 'Heat Transfer' },
+    { value: 'Electrostatics', label: 'Electrostatics' },
+    { value: 'Dichotomous Key', label: 'Dichotomous Key' },
+    { value: 'Cell Mutation', label: 'Cell Mutation' },
+    { value: 'Transpiration', label: 'Transpiration' },
+    { value: 'Respiration', label: 'Respiration' },
 
   ]
   return (
