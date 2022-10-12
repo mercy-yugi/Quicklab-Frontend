@@ -51,6 +51,7 @@ const Sidebar = () => {
            <img src={logo} alt="logo" width={100} />
            </div>
            <h4>Previous Practicals</h4>
+           <p>No practicals done yet</p>
            <BsEmojiSmileFill className='smile'/>
            <div className="icon">
             <FaPlus className='plus'/>
@@ -61,8 +62,7 @@ const Sidebar = () => {
     <form action="/" method="get">
       <div className='se_pro'>
       <div>
-        <input
-        
+        <input 
             type="text"
             id="header-search"
             placeholder="Search practicals"
