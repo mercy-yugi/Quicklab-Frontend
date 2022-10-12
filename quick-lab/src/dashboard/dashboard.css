@@ -6,95 +6,115 @@
     border-bottom-left-radius: 10px;
 }
 .home-container-1 .logo img{
-  margin-left: 25%;
-  margin-top: 20%;
+  margin-left: 30%;
+  margin-top: 18%;
 
 }
 .home-container-1 h4{
+    font-size: 20px;
+    margin-top: 22%;
     color:#00A9E5;
     text-align: center;
 } 
+
+.home-container-1 p{
+    margin-top: -5%;
+    color:#000000;
+    text-align: center;
+} 
+
 .home-container-1 .icon{
     color: #00A9E5;
     margin-top:3%;
     padding-left:10px;
 }
+
 .plus{
     border:2px solid #00A9E5;
     border-radius:10px;
+    width: 70px;
     padding: 50px;
     font-size:30px;
-    margin-left: 25%;
+    margin-left: 15%;
     margin-top:14%;
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 1.5px 1.5px 1.5px 0px rgba(0,0,0,0.30);
+    -webkit-box-shadow: 1.5px 1.5px 1.5px 0px rgba(0,0,0,0.30);
+    -moz-box-shadow: 1.5px 1.5px 1.5px 0px rgba(0,0,0,0.30);
 
 }
 .icon p{
     color: black;
-    margin-left:32%;
+
     margin-top:-15%;
+
 }
 .home-container-1 .smile{
-   margin-left: 45%;
-   font-size:30px;
+    margin-top: 4%;
+    margin-left: 45%;
+    font-size:30px;
     color: rgb(247, 227, 9);
 }
 .main-container{
     background-color: #dcf0fc;
     display:flex ;
-    height: 100vh;
-    /* color:#E4F2FB; */
+
 }
 
 .profile{
     font-size:40px;
     color: #00A9E5;
     border-radius:50%;
-    background-color: #FFFFFF;
-   
+    background-color: #FFFFFF;   
     
+    
+
 }
+
 .se_pro{
     display: flex;
-    /* width: 100vw; */
-    /* background-color: red; */
+
     margin-bottom: 3%;
 }
 .se_pro input{
     padding: 10px;
-    width: 40vw;
+    height: 16px;
+    width: 54vw;
     border-radius:30px;
     border: none;
-    margin-left: 25%;
+    margin-left: 13%;
     margin-top:5%;
 
-    
 
 
-}
+
+  }
+
 .se_pro input:focus{
     outline: none;
 }
 
 .se_pro .prof{
    float: right;
-   margin-left: 37%;
-   margin-top: 2.5%;
+   margin-left: 15%;
+   margin-top: 3.5%;
 }
 
 .options{
     display: flex; 
-    /* margin-top:5%; */
+    
     margin-left:15%;
     gap: 5rem;
-   
-    /* justify-content: space-evenly; */
+
+
 
 }
 .options .topics, .level, .subject{
-    /* background-color: red; */
-    /* padding:14px;  */
-    width:250px ;
+    margin-top: 2%;
+    width:265px ;
+    padding: 1px; 
+    margin-left: -4%;
+    font-size: 13px;
+
 }
+
+
