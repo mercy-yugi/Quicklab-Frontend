@@ -71,12 +71,11 @@ const { register, handleSubmit, formState: { errors }, reset } = useForm({
 
     
 const submitting=()=>{
-   
     const 
     {first_name,last_name,username,password,level,} = user
     console.log("users");
     if (first_name && last_name && username && level && password){
-     axios.post("https://vast-reef-39990.herokuapp.com/Quicklab/register/",user )
+     axios.post("http://127.0.0.1:8000/api/register/",user )
 .then(res=>{
         // res.headers("Access-Control-Allow-Origin", "*");
         console.log(res)

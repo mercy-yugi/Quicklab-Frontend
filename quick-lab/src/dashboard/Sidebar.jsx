@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from "react"
 import {BsEmojiSmileFill,BsPersonCircle} from 'react-icons/bs';
 import {FaSearch} from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
@@ -10,7 +11,6 @@ import Practicals from './Practicals';
 
 
 const Sidebar = () => {
-
   const options = [
     { value: 'FORM 4', label: 'Form 4' },
     { value: 'FORM 3', label: 'Form 3' },
@@ -29,6 +29,20 @@ const Sidebar = () => {
     { value: 'Electrolysis', label: 'Electrolysis' },
 
   ]
+  const [query, setquery] = useState('')
+
+  const handleChange = (e) => {
+    // setquery(e.target.value)
+  //   const results = posts.filter(post => {
+  //     if (e.target.value === "") return posts
+  //     return post.title.toLowerCase().includes(e.target.value.toLowerCase())
+  // })
+  // setstate({
+  //     query: e.target.value,
+  //     list: results
+  // })
+  }
+
   return (
     <div className='main-container'>
     <div className="home-container-1">
@@ -52,8 +66,11 @@ const Sidebar = () => {
             id="header-search"
             placeholder="Search practicals"
             name="s" 
-            {...<FaSearch/>}
-        /> </div>
+            // value={query} onChange={handleChange}
+          
+        />
+         {/* <FaSearch/> */}
+        </div>
         <div className='prof'>
           <BsPersonCircle className='profile'/>
           </div>
