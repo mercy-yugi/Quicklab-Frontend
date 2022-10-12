@@ -33,10 +33,9 @@ function SignupForm() {
         last_name:"",
         username: "",
         password:"",
-        level:""
-        
-
+        level:"" 
     })
+    
 
     useEffect(()=>{
         console.log("some",user);
@@ -156,7 +155,11 @@ const refreshPage = () => {
                 </div>
 
                 <div className=''>
-                <Select className='dropdown' placeholder="Level" options={options} />
+                <Select className='dropdown' name="level" placeholder="Level" options={options}  
+                {...register("level")}
+                onChange={ level=>handleChange({target:{value:level.label, name:'level'}})}
+
+            />
                 {errors.level?.message}
                 </div>
             </div>
