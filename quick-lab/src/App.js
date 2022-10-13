@@ -5,7 +5,6 @@ import LoginForm from './Login/login';
 import Dashboard from './dashboard/Dashboard';
 
 
-
 function App() {
   return (
     <div>
@@ -14,7 +13,6 @@ function App() {
         <Route path="/" element={<SignupForm/>}/>
         <Route path="/login" element={<LoginForm/>}/>
         <Route path="/home" element={<Dashboard/>}/>
-
       
   </Routes>  
 

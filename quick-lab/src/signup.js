@@ -12,6 +12,8 @@ import * as yup from 'yup';
 import axios from "axios";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+
 toast.configure()
 
 
@@ -191,7 +193,9 @@ const refreshPage = () => {
         </div>
          
         </form>
+   
         
     );
+ 
 }
 export default SignupForm;
