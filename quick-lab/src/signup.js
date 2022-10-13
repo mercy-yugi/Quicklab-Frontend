@@ -74,7 +74,7 @@ const submitting=()=>{
     {first_name,last_name,username,password,level,} = user
     // console.log("users");
     if (first_name && last_name && username && level && password){
-     axios.post("http://127.0.0.1:8000/api/register/",user )
+     axios.post("https://sheltered-earth-23604.herokuapp.com/api/register/",user )
 .then(res=>{
         // res.header("Access-Control-Allow-Origin", "*");
         console.log(res)
