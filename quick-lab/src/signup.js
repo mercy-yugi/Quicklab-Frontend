@@ -56,8 +56,8 @@ function SignupForm() {
         first_name: yup.string().required(),
         last_name: yup.string().required(),
         username: yup.string().required(),
-        level: yup.string().required(),
-        password: yup.string().min(8).max(15).required(),
+        // level: yup.string().required(),
+        password: yup.string().min(3).max(8).required(),
         // confirmPassword: yup.string().required().oneOf([yup.ref('password'), null])
 
       })
@@ -72,22 +72,21 @@ const { register, handleSubmit, formState: { errors }, reset } = useForm({
 const submitting=()=>{
     const 
     {first_name,last_name,username,password,level,} = user
-    console.log("users");
+    // console.log("users");
     if (first_name && last_name && username && level && password){
      axios.post("http://127.0.0.1:8000/api/register/",user )
 .then(res=>{
-        // res.headers("Access-Control-Allow-Origin", "*");
+        // res.header("Access-Control-Allow-Origin", "*");
         console.log(res)
         toast('You have successfully been registered to Quick lab, Login to continue' )
         navigate("/login")
         reset();
         refreshPage();
-
     
     })
     .catch(error=>{
         console.log(error)
-        toast('Unable to register, to try again')
+        toast('Unable to register, please try again')
 
     })
     }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from "react"
 import {BsEmojiSmileFill,BsPersonCircle} from 'react-icons/bs';
 import {FaSearch} from 'react-icons/fa';
@@ -8,6 +8,7 @@ import '../dashboard/dashboard.css';
 import { FaPlus } from "react-icons/fa";
 import Select from 'react-select'
 import Practicals from './Practicals';
+import { searchItems } from './Practicals';
 
 
 const Sidebar = () => {
@@ -44,19 +45,19 @@ const Sidebar = () => {
     { value: 'Respiration', label: 'Respiration' },
 
   ]
+
+  
+
   const [query, setquery] = useState('')
 
-  const handleChange = (e) => {
-    // setquery(e.target.value)
-  //   const results = posts.filter(post => {
-  //     if (e.target.value === "") return posts
-  //     return post.title.toLowerCase().includes(e.target.value.toLowerCase())
-  // })
-  // setstate({
-  //     query: e.target.value,
-  //     list: results
-  // })
-  }
+  const [search, setSearch] = useState([]);
+
+
+  useEffect(() =>{
+    localStorage.setItem('search', JSON.stringify(search));
+  }, [search])
+
+  console.log(search)
 
   return (
     <div className='main-container'>
@@ -81,9 +82,9 @@ const Sidebar = () => {
             id="header-search"
             placeholder="Search practicals"
             name="s" 
-            // value={query} onChange={handleChange}
-          
-        />
+            // value={query} 
+            onChange={(e)=>setSearch(e.target.value)} 
+        /> 
          {/* <FaSearch/> */}
         </div>
         <div className='prof'>

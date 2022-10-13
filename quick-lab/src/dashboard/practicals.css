@@ -1,6 +1,6 @@
 .practical_container{
     background-color: #dcf0fc;
-    margin-left: 8%;
+    margin-left: 5%;
     width: 100%;
 }
 .all_practicals{
@@ -9,9 +9,12 @@
 .see_all{
     display: inline;
     /* float: right; */
-    margin-left: 85%;
+    margin-left: 87%;
     color:#00A9E5;
-    ;
+}
+.see_all:hover{
+    color:#e8500a;
+
 }
 
 .arrow{
