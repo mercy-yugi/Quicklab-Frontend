@@ -74,14 +74,13 @@ const submitting=()=>{
     {first_name,last_name,username,password,level,} = user
     // console.log("users");
     if (first_name && last_name && username && level && password){
-     axios.post("https://sheltered-earth-23604.herokuapp.com/api/register/",user )
+     axios.post("https://sheltered-earth-23604.herokuapp.com/api/students",user )
 .then(res=>{
         // res.header("Access-Control-Allow-Origin", "*");
         console.log(res)
         toast('You have successfully been registered to Quick lab, Login to continue' )
         navigate("/login")
         reset();
-        refreshPage();
     
     })
     .catch(error=>{

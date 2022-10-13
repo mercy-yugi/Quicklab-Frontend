@@ -10,8 +10,8 @@ import Practicals from './dashboard/Practicals';
 function App() {
   return (
     <div>
-      <Dashboard/>
-  {/* <Router>
+      {/* <Dashboard/> */}
+  <Router>
   <Routes>
         <Route path="/" element={<SignupForm/>}/>
         <Route path="/login" element={<LoginForm/>}/>
@@ -20,7 +20,7 @@ function App() {
       
   </Routes>  
 
- </Router> */}
+ </Router>
 
        
     </div>
