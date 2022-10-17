@@ -6,6 +6,7 @@ import axios from "axios";
 import {BsEmojiSmileFill,BsPersonCircle} from 'react-icons/bs';
 import Select from 'react-select'
 import '../dashboard/dashboard.css';
+import { Link, useNavigate} from 'react-router-dom';
 
 
 
@@ -14,6 +15,7 @@ import '../dashboard/dashboard.css';
 
 
 const Practicals=()=>{
+  const navigate = useNavigate()
 
     const options = [
         { value: 'FORM 4', label: 'Form 4' },
@@ -80,6 +82,10 @@ const Practicals=()=>{
          
       }
       }
+      const navigatetoInterface = (e) => {
+          navigate('/canvas')
+          e.preventDefault()
+      }
 
     const fetchPractical=()=>{
          axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
@@ -140,7 +146,7 @@ const Practicals=()=>{
                 <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
 
-            <div className='one'>
+            <div className='one' onClick={navigatetoInterface}>
                 <img className='picture' src={image} alt='practical'/>
                 <p className='practical_title'><b>{len>=2 && filteredResults[1].title || practicals.length!==0 && practicals[1].title  }</b></p>
                 <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>

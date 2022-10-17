@@ -4,6 +4,7 @@ import SignupForm from './signup';
 import LoginForm from './Login/login';
 import Dashboard from './dashboard/Dashboard';
 import Practicals from './dashboard/Practicals';
+import Interface from './labinterface/Interface';
 
 
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<SignupForm/>}/>
         <Route path="/login" element={<LoginForm/>}/>
         <Route path="/home" element={<Dashboard/>}/>
+        <Route path="/canvas" element={<Interface/>}/>
 
       
   </Routes>  
