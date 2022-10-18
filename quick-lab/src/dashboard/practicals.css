@@ -2,6 +2,7 @@
     background-color: #dcf0fc;
     margin-left: 5%;
     width: 100%;
+    margin-bottom: 2%;
 }
 .all_practicals{
     display: flex;
@@ -9,17 +10,27 @@
 .see_all{
     display: inline;
     /* float: right; */
-    margin-left: 89%;
-    color: rgb(10, 152, 187);
+    margin-left: 87%;
+    color:#00A9E5;
+}
+.see_all:hover{
+    color:#e8500a;
+
+}
+
+.arrow{
+    margin-top: -10%;
 }
 
 .one{
     background-color: rgb(241, 250, 252);
     color: rgb(3, 50, 68);
     padding: 3px;
-    width: 190px;
+    width: 164px;
+    /* height:150px ; */
     text-align: center;
-    margin: 2%;
+    /* margin-top: 2%; */
+    margin: 1% 1% 0% 5.5%;
     border-radius: 10px;
     box-shadow: 1px 1px 10px rgb(153, 151, 151);
     transition: transform 500ms ease;
@@ -29,12 +40,24 @@
     transform: scale(1.1);
 
 }
+.one p{
+    /* margin: 0; */
+}
 .picture{
     width: 100%;
     border-radius: 10px;
 
 }
 .about_practical{
-    color: rgb(6, 107, 122);
-    margin-left: 2%;
+    margin-top: 4%;
+    color: #5C5C5C;
+    margin-left: 4%;
+}
+.practical_title{
+    font-size: 12px;
+    margin: 0;
+
+}
+.practical_description{
+    font-size: 9px;
 }

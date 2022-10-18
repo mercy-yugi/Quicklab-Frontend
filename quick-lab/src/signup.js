@@ -10,6 +10,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from 'yup';
 import axios from "axios";
+import Select from 'react-select'
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -20,16 +21,21 @@ toast.configure()
 
 
 function SignupForm() {
+    const options = [
+        { value: 'FORM 4', label: 'Form 4' },
+        { value: 'FORM 3', label: 'Form 3' },
+        { value: 'FORM 2', label: 'Form 2' },
+        { value: 'FORM 1', label: 'Form 1' }
+      ]
     const navigate = useNavigate()
     const [user,setUser] = useState({
         first_name:"",
         last_name:"",
         username: "",
         password:"",
-        level:""
-        
-
+        level:"" 
     })
+    
 
     useEffect(()=>{
         console.log("some",user);
@@ -50,8 +56,8 @@ function SignupForm() {
         first_name: yup.string().required(),
         last_name: yup.string().required(),
         username: yup.string().required(),
-        level: yup.string().required(),
-        password: yup.string().min(8).max(15).required(),
+        // level: yup.string().required(),
+        password: yup.string().min(3).max(8).required(),
         // confirmPassword: yup.string().required().oneOf([yup.ref('password'), null])
 
       })
@@ -64,25 +70,23 @@ const { register, handleSubmit, formState: { errors }, reset } = useForm({
 
     
 const submitting=()=>{
-   
     const 
     {first_name,last_name,username,password,level,} = user
-    console.log("users");
+    // console.log("users");
     if (first_name && last_name && username && level && password){
-     axios.post("https://vast-reef-39990.herokuapp.com/Quicklab/register/",user )
+     axios.post("https://sheltered-earth-23604.herokuapp.com/api/register/",user )
 .then(res=>{
-        // res.headers("Access-Control-Allow-Origin", "*");
+        // res.header("Access-Control-Allow-Origin", "*");
         console.log(res)
         toast('You have successfully been registered to Quick lab, Login to continue' )
         navigate("/login")
         reset();
         refreshPage();
-
     
     })
     .catch(error=>{
         console.log(error)
-        toast('Unable to register, to try again')
+        toast('Unable to register, please try again')
 
     })
     }
@@ -94,7 +98,9 @@ const submitting=()=>{
 const refreshPage = () => {
     navigate(0);
 }
-     
+
+
+
     return (
 
             <form onSubmit={handleSubmit(submitting)} >
@@ -146,11 +152,13 @@ const refreshPage = () => {
             <div className='icons'>
                    <AiFillLayout/>
                 </div>
-                <div className='level'>
-                <input  type="text" name="level" required placeholder='Level'
-                      {...register("level")}
-                      onChange={handleChange}               
-                      />
+
+                <div className=''>
+                <Select className='dropdown' name="level" placeholder="Level" options={options}  
+                {...register("level")}
+                onChange={ level=>handleChange({target:{value:level.label, name:'level'}})}
+
+            />
                 {errors.level?.message}
                 </div>
             </div>

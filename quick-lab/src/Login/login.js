@@ -50,7 +50,7 @@ const onSubmitHandler = (e) => {
     const submitting=()=>{
         const {username,password} = user
         if (username && password){
-         axios.post("https://vast-reef-39990.herokuapp.com/Quicklab/login/",user )
+         axios.post("https://sheltered-earth-23604.herokuapp.com/api/login/",user )
         .then(res=>{
             console.log(res.data)
                     reset();

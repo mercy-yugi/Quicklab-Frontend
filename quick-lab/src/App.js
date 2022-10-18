@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Route , Routes } from "react-router-dom";
 import SignupForm from './signup';
 import LoginForm from './Login/login';
 import Dashboard from './dashboard/Dashboard';
+import Practicals from './dashboard/Practicals';
 
 
 function App() {
   return (
     <div>
-  <Router>
+      <Dashboard/>
+  {/* <Router>
   <Routes>
         <Route path="/" element={<SignupForm/>}/>
         <Route path="/login" element={<LoginForm/>}/>
@@ -16,7 +18,7 @@ function App() {
       
   </Routes>  
 
- </Router>
+ </Router> */}
 
        
     </div>
