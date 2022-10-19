@@ -136,7 +136,7 @@ export default function PersistentDrawerLeft() {
         </List>
         <Divider />
         <List>
-        <Typography className='instructions'>Tools and Equipment</Typography>
+        {/* <Typography className='instructions'>Tools and Equipment</Typography> */}
           {/* {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
@@ -158,17 +158,58 @@ export default function PersistentDrawerLeft() {
           
         </Typography>
       </Main>
-
-      <div className='pracbuttons'>
-        <div className='clear'>
-        <button type='clear' onClick={submitting} >Clear</button>
-        </div>
-
-        <div className='record'>
-        <button type='record' onClick={submitting} >Record Observation</button>
-        </div>
-      </div>
+      <Drawer className='drawer'
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+          },
+        }}
+        variant="persistent"
+        anchor="right"
+        open={open}
+      >
+        <DrawerHeader>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'ltr' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          </IconButton>
+        </DrawerHeader>
+        <Divider />
+        <List>
+            <Typography className='instructions'>Lab Equipment</Typography>
+            <Typography paragraph>
+               
+        </Typography>
+          {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+            <ListItem key={text} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          ))} */}
+        </List>
+        <Divider />
+        <List>
+        {/* <Typography className='instructions'>Tools and Equipment</Typography> */}
+          {/* {['All mail', 'Trash', 'Spam'].map((text, index) => (
+            <ListItem key={text} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          ))} */}
+        </List>
+      </Drawer>
       
     </Box>
+    
   );
 }
