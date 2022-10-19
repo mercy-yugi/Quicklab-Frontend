@@ -20,6 +20,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import '../labinterface/interface.css'
 import DigitalTimer from '../labinterface/timer';
+import Foooter from '../Footer';
 
 const drawerWidth = 240;
 
@@ -220,8 +221,9 @@ export default function PersistentDrawerLeft() {
           ))} */}
         </List>
       </Drawer>
-      
+      <Foooter/>
     </Box>
-    
+ 
   );
+ 
 }
