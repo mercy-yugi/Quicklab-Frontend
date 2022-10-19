@@ -132,7 +132,7 @@ export default function PersistentDrawerLeft() {
             <Typography paragraph>
                
         </Typography>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -141,12 +141,12 @@ export default function PersistentDrawerLeft() {
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
-          ))}
+          ))} */}
         </List>
         <Divider />
         <List  className='list'>
         {/* <Typography className='instructions'>Tools and Equipment</Typography> */}
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {/* {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -155,7 +155,7 @@ export default function PersistentDrawerLeft() {
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
-          ))}
+          ))} */}
         </List>
       </Drawer>
       <Main open={open}>
@@ -194,7 +194,7 @@ export default function PersistentDrawerLeft() {
             <Typography className='instructions'>Lab Equipment</Typography>
             <Typography paragraph>
         </Typography>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem  key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -203,12 +203,12 @@ export default function PersistentDrawerLeft() {
                 <ListItemText  primary={text} />
               </ListItemButton>
             </ListItem>
-          ))}
+          ))} */}
         </List>
         <Divider />
         <List className='list '>
         {/* <Typography className='instructions'>Tools and Equipment</Typography> */}
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {/* {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -217,7 +217,7 @@ export default function PersistentDrawerLeft() {
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
-          ))}
+          ))} */}
         </List>
       </Drawer>
       
