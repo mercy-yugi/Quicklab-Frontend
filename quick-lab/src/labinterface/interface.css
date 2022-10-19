@@ -1,0 +1,13 @@
+.instructions{
+    color: red;
+    text-align: center;
+}
+/* .drawer{
+    background-color:#e8f6fe;
+} */
+.appbar{
+    background-color:#e8f6fe;
+    color: black;
+    font-family: sans-serif;
+    font-style:bold;
+}

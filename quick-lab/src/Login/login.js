@@ -43,7 +43,6 @@ const { register, handleSubmit, formState: { errors }, reset } = useForm({
       });
 const onSubmitHandler = (e) => {
        e.preventDefault();
-    //    navigate("/home")
        reset();
     }
 
@@ -55,17 +54,15 @@ const onSubmitHandler = (e) => {
             console.log(res.data)
                     reset();
                     notify()
-
-
+                    navigate("/home")
         })
         .catch(error=>{
             console.log(error)
+            toast('unable to login, make sure your username and password are correct')
             reset();
 
-            
-            toast('unable to login, make sure your username and password are correct')
         })
-        navigate("/home")
+        
         }
         else{
             console.log(user)

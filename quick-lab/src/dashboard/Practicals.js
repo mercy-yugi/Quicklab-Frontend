@@ -6,6 +6,7 @@ import axios from "axios";
 import {BsEmojiSmileFill,BsPersonCircle} from 'react-icons/bs';
 import Select from 'react-select'
 import '../dashboard/dashboard.css';
+import { Link, useNavigate} from 'react-router-dom';
 
 
 
@@ -14,6 +15,7 @@ import '../dashboard/dashboard.css';
 
 
 const Practicals=()=>{
+  const navigate = useNavigate()
 
     const options = [
         { value: 'FORM 4', label: 'Form 4' },
@@ -46,17 +48,41 @@ const Practicals=()=>{
     const [practicals,setPracticals]=useState([])
     const [searchInput, setSearchInput] = useState('');
   const [filteredResults, setFilteredResults] = useState(practicals);
-  const [search, setSearch] = useState([]);
+  const [details,setDetails] = useState({
+    level: "",
+    subject:"",
+    topic:""        
+
+})
+
+const handleDetails = e =>{
+    const {name,value} = e.target
+    setDetails({
+    ...details,//spread operator 
+    [name]:value
+
+    })
+    console.log(details)
+    if (searchInput !== '') {
+      // console.log('Woww')
+    const filteredData = practicals.filter((item) => {
+      if(item.title==topic && item.subject==subject){
+        
+      }
+        return Object.values(item.title).join('').toLowerCase().includes(searchInput.toLowerCase())
+    })
+    console.log('filtered data are ',filteredData)
+    setFilteredResults(filteredData)
+}
+else{
+  console.log('ahreee')
+    setFilteredResults(practicals)
+   
+}
+    }
 
 
 
-//   useEffect(() =>{
-//     console.log(JSON.parse(localStorage.getItem('search')))
-//     if(search){
-//       setSearch(search);
-//     }
-//   }, []);
-    
 
     useEffect((e)=>{
         // e.preventDefault()
@@ -64,22 +90,27 @@ const Practicals=()=>{
     },[])
 
     const searchItems = (searchvalue) => {
-        // console.log(practicals)
+      console.log('filtered data are ',filteredResults)
+
         setSearchInput(searchvalue)
         if (searchInput !== '') {
-            // console.log('Woww')
           const filteredData = practicals.filter((item) => {
               return Object.values(item.title).join('').toLowerCase().includes(searchInput.toLowerCase())
           })
-          console.log('filtered data are ',filteredData)
           setFilteredResults(filteredData)
       }
       else{
-        console.log('ahreee')
           setFilteredResults(practicals)
          
       }
       }
+      const navigatetoInterface = (e) => {
+          navigate('/canvas')
+          e.preventDefault()
+      }
+
+
+    // const filterItems=(levelInput,)  
 
     const fetchPractical=()=>{
          axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
@@ -119,13 +150,19 @@ const Practicals=()=>{
       
         <div className='options'>
           <div className='level'>
-          <Select placeholder="Level" options={options} />
+          <Select placeholder="Level" options={options} 
+          onChange={ level=>handleDetails({target:{value:level.label, name:'level'}})}
+          />
           </div>
           <div className='subject'>
-          <Select placeholder="Subject" options={subjects} />
+          <Select placeholder="Subject" options={subjects}
+          onChange={ subject=>handleDetails({target:{value:subject.label, name:'subject'}})}
+          />
           </div>
           <div className='topics'>
-          <Select placeholder="Topics" options={topics} />
+          <Select placeholder="Topics" options={topics}
+          onChange={ topic=>handleDetails({target:{value:topic.label, name:'topic'}})}
+          />
           </div>
         
         </div>   
@@ -133,14 +170,51 @@ const Practicals=()=>{
 
         <h3 className='about_practical' >Available Practicals</h3>
         <div className='see_all'> <span>See all</span> <FaLongArrowAltRight className='arrow' /></div>
-                  <div className='all_practicals'>
+            
+        {len>=1 && <div className='all_practicals'>
+          {filteredResults.map(item=>(
+            <div className='one'>
+            <img className='picture' src={image} alt='practical'/>
+            <p className='practical_title'><b>{item.title}</b></p>
+            <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
+        </div>
+          ))} 
+          </div> || practicals.length>=1 && <div className='all_practicals'>
+
+            
+             <div className='one'>
+             <img className='picture' src={image} alt='practical'/>
+             <p className='practical_title'><b>{practicals[0].title}</b></p>
+             <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
+         </div>
+         <div className='one'>
+             <img className='picture' src={image} alt='practical'/>
+             <p className='practical_title'><b>{practicals[1].title}</b></p>
+             <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
+         </div>
+         <div className='one'>
+             <img className='picture' src={image} alt='practical'/>
+             <p className='practical_title'><b>{practicals[2].title}</b></p>
+             <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
+         </div>
+         <div className='one'>
+             <img className='picture' src={image} alt='practical'/>
+             <p className='practical_title'><b>{practicals[3].title}</b></p>
+             <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
+         </div>
+            
+
+          </div> }     
+        
+
+                  {/* <div className='all_practicals'>
                     <div className='one'>
                 <img className='picture' src={image} alt='practical'/>
                 <p className='practical_title'><b>{len>=1 && filteredResults[0].title || practicals.length!==0 && practicals[0].title  }</b></p>
                 <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
 
-            <div className='one'>
+            <div className='one' onClick={navigatetoInterface}>
                 <img className='picture' src={image} alt='practical'/>
                 <p className='practical_title'><b>{len>=2 && filteredResults[1].title || practicals.length!==0 && practicals[1].title  }</b></p>
                 <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
@@ -157,7 +231,7 @@ const Practicals=()=>{
                 <p className='practical_title'><b>{len>=4 && filteredResults[3].title || practicals.length!==0 && practicals[3].title  }</b></p>
                 <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
-        </div>
+        </div> */}
 
         
             
