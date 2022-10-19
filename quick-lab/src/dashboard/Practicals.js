@@ -66,9 +66,9 @@ const handleDetails = e =>{
     if (searchInput !== '') {
       // console.log('Woww')
     const filteredData = practicals.filter((item) => {
-      if(item.title==topic && item.subject==subject){
+      // if(item.title==topic && item.subject==subject){
         
-      }
+      // }
         return Object.values(item.title).join('').toLowerCase().includes(searchInput.toLowerCase())
     })
     console.log('filtered data are ',filteredData)

@@ -1,6 +1,6 @@
 import {Component} from 'react'
 
-import './index.css'
+import '../labinterface/timer.css'
 
 const initialState = {
   isTimerRunning: false,
