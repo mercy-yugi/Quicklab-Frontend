@@ -1,6 +1,6 @@
 import {Component} from 'react'
 
-import './timer.css'
+import './index.css'
 
 const initialState = {
   isTimerRunning: false,
@@ -104,18 +104,15 @@ class DigitalTimer extends Component {
           />
         
         </button>
-        <button
-          className="timer-controller-btn1"
-          onClick={this.onResetTimer}
-          type="button"
-        >
-          <img
+        <div>
+        <img
+           onClick={this.onResetTimer}
             alt="reset icon"
             className="timer-controller-icon"
             src="https://assets.ccbp.in/frontend/react-js/reset-icon-img.png"
           />
-
-        </button>
+        </div>
+         
       </div>
     )
   }
@@ -139,7 +136,7 @@ class DigitalTimer extends Component {
           <div className="timer-display-container">
             <div className="elapsed-time-container">
               <h1 className="elapsed-time">
-                {this.getElapsedSecondsInTimeFormat()}
+                Timer:{this.getElapsedSecondsInTimeFormat()}
               </h1>
             </div>
           </div>
