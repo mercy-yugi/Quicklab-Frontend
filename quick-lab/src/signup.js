@@ -56,7 +56,7 @@ function SignupForm() {
         first_name: yup.string().required(),
         last_name: yup.string().required(),
         username: yup.string().required(),
-        level: yup.string().required(),
+        // level: yup.string().required(),
         password: yup.string().min(3).max(8).required(),
         // confirmPassword: yup.string().required().oneOf([yup.ref('password'), null])
 

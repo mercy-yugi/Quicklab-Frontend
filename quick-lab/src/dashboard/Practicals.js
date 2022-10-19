@@ -10,10 +10,6 @@ import { Link, useNavigate} from 'react-router-dom';
 
 
 
-
-
-
-
 const Practicals=()=>{
   const navigate = useNavigate()
 
@@ -66,7 +62,7 @@ const handleDetails = e =>{
     if (searchInput !== '') {
       // console.log('Woww')
     const filteredData = practicals.filter((item) => {
-      // if(item.title==topic && item.subject==subject){
+      // if(item.title  === topic && item.subject === subject){
         
       // }
         return Object.values(item.title).join('').toLowerCase().includes(searchInput.toLowerCase())
@@ -182,22 +178,22 @@ else{
           </div> || practicals.length>=1 && <div className='all_practicals'>
 
             
-             <div className='one'>
+             <div className='one' onClick={navigatetoInterface}>
              <img className='picture' src={image} alt='practical'/>
              <p className='practical_title'><b>{practicals[0].title}</b></p>
              <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
          </div>
-         <div className='one'>
+         <div className='one'onClick={navigatetoInterface}>
              <img className='picture' src={image} alt='practical'/>
              <p className='practical_title'><b>{practicals[1].title}</b></p>
              <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
          </div>
-         <div className='one'>
+         <div className='one'onClick={navigatetoInterface}>
              <img className='picture' src={image} alt='practical'/>
              <p className='practical_title'><b>{practicals[2].title}</b></p>
              <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
          </div>
-         <div className='one'>
+         <div className='one'onClick={navigatetoInterface}>
              <img className='picture' src={image} alt='practical'/>
              <p className='practical_title'><b>{practicals[3].title}</b></p>
              <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>

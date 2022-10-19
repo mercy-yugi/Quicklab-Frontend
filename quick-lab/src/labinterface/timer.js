@@ -1,6 +1,9 @@
 import {Component} from 'react'
-
 import '../labinterface/timer.css'
+import RestartAlt from '@mui/icons-material/RestartAlt';
+import PauseCircleFilledIcon from '@mui/icons-material/PauseCircleFilled';
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 
 const initialState = {
   isTimerRunning: false,
@@ -85,34 +88,27 @@ class DigitalTimer extends Component {
 
   renderTimerController = () => {
     const {isTimerRunning} = this.state
-    const startOrPauseImageUrl = isTimerRunning
-      ? 'https://assets.ccbp.in/frontend/react-js/pause-icon-img.png'
-      : 'https://assets.ccbp.in/frontend/react-js/play-icon-img.png'
-    const startOrPauseAltText = isTimerRunning ? 'pause icon' : 'play icon'
-
     return (
       <div className="timer-controller-container">
-        <button
-          className="timer-controller-btn"
-          onClick={this.onStartOrPauseTimer}
-          type="button"
-        >
-          <img
-            alt={startOrPauseAltText}
+        <div>
+        <h3 className="elapsed-time">
+                Timer:{this.getElapsedSecondsInTimeFormat()}
+
+          </h3>
+        </div>
+        <div className='pauseplay'>
+        {isTimerRunning?<PauseCircleFilledIcon onClick={this.onStartOrPauseTimer}/>:<PlayCircleIcon onClick={this.onStartOrPauseTimer}/>} 
+        </div>
+        <div className='reset'>
+        <RestartAlt
+           onClick={this.onResetTimer}
             className="timer-controller-icon"
-            src={startOrPauseImageUrl}
           />
         
-        </button>
-        <div>
-        <img
-           onClick={this.onResetTimer}
-            alt="reset icon"
-            className="timer-controller-icon"
-            src="https://assets.ccbp.in/frontend/react-js/reset-icon-img.png"
-          />
         </div>
-         
+        <div className='recording'>
+          <RadioButtonCheckedIcon/>
+          </div>
       </div>
     )
   }
@@ -132,19 +128,13 @@ class DigitalTimer extends Component {
   render() {
     return (
       <div className="app-container">
-        <div className="digital-timer-container">
-          <div className="timer-display-container">
-            <div className="elapsed-time-container">
-              <h1 className="elapsed-time">
-                Timer:{this.getElapsedSecondsInTimeFormat()}
-              </h1>
-            </div>
-          </div>
+              <h6 className="elapsed-time">
+                {/* Timer:{this.getElapsedSecondsInTimeFormat()} */}
+              </h6>
           <div className="controls-container">
             {this.renderTimerController()}
             {this.renderTimerLimitController()}
           </div>
-        </div>
       </div>
     )
   }

@@ -1,13 +1,58 @@
 .instructions{
-    color: red;
+    color: rgb(31, 179, 225);
     text-align: center;
 }
-/* .drawer{
+.list{
     background-color:#e8f6fe;
-} */
+}
 .appbar{
     background-color:#e8f6fe;
-    color: black;
+    color: rgb(31, 179, 225);
     font-family: sans-serif;
     font-style:bold;
+    /* padding:10px; */
+}
+.listtext{
+    background-color: chartreuse;
+}
+button{
+   /* background-color: blueviolet; */
+   margin-top:47%;
+   padding:10px;
+  gap: 5rem;
+}
+.record{
+    margin-left:35%;
+    padding:15px;
+    width:30%;
+    background-color:rgb(31, 179, 225) ;
+    border-style: none;
+    color: whitesmoke;
+    border-radius:3px;
+}
+.clear{
+    margin-left:5%;
+    border-radius:3px;
+    padding:15px;
+    width:30%;
+    background-color:rgb(90, 93, 94) ;
+    border-style: none;
+    color: whitesmoke;
+}
+/* .interface{
+    background-color: black;
+    box-sizing: border-box;
+
+} */
+.header{
+    display: flex; 
+}
+.timer{
+    float: right;
+    margin-left:190%;
+    color: black;
+    margin-top:-2%;
+}
+.heading1{
+    margin-top:8%;
 }
