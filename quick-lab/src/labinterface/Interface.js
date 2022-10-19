@@ -158,6 +158,16 @@ export default function PersistentDrawerLeft() {
           
         </Typography>
       </Main>
+
+      <div className='pracbuttons'>
+        <div className='clear'>
+        <button type='clear' onClick={submitting} >Clear</button>
+        </div>
+
+        <div className='record'>
+        <button type='record' onClick={submitting} >Record Observation</button>
+        </div>
+      </div>
       
     </Box>
   );
