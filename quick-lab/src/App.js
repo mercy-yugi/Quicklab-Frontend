@@ -5,13 +5,14 @@ import LoginForm from './Login/login';
 import Dashboard from './dashboard/Dashboard';
 import Practicals from './dashboard/Practicals';
 import Interface from './labinterface/Interface';
-
+import DigitalTimer from './labinterface/timer';
 
 
 function App() {
   return (
     <div>
       {/* <Dashboard/> */}
+      {/* <DigitalTimer/> */}
   <Router>
   <Routes>
         <Route path="/" element={<SignupForm/>}/>

@@ -1,0 +1,72 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(
+      to bottom,
+      #ffffff,
+      #cffcf1,
+      #cffcf1,
+      #defafe
+    ); 
+  }
+  .timer-controller-container {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+     }
+  
+  .timer-controller-btn {
+    background-color:transparent;
+    border: none;
+    margin-right: 16px;
+    margin-left: 16px;
+    cursor: pointer;
+  } 
+  .timer-controller-icon1 {
+    width: 18px;
+    height: 18px;
+    margin-left: 361%;
+    margin-top: 200%;
+    background-color: transparent;
+  }
+  .timer-controller-icon {
+    width: 18px;
+    height: 18px;
+    margin-left: 361%;
+    margin-top:-91%;
+    background-color: transparent;
+    margin-bottom: 91%;
+  }
+  .limit-value {
+    text-align: center;
+    color: #1e293b;
+    background-image: linear-gradient(to right, #cdd1d6, #00d9f5);
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: 500;
+    width: 40px;
+    border-radius: 8px;
+    background-color: transparent;
+    padding: 8px;
+  }
+  .controls-container {
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin-left: 300%;
+  }
+  .elapsed-time {
+    color: #e0531c;
+    font-family: 'Roboto';
+    margin-left: 250%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -301%;
+    background-color: transparent;
+    margin-left: 490%;
+    margin-bottom: -4% }
