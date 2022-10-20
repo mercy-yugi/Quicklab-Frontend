@@ -186,7 +186,7 @@ else{
             
         {len>=1 && <div className='all_practicals'>
           {filteredResults.map(item=>(
-            <div className='one'>
+            <div className='one' value={practicals[0].title} onClick={value=>navigatetoInterface({value:practicals[0].title}.value)}>
             <img className='picture' src={cell} alt='practical'/>
             <p className='practical_title'><b>{item.title}</b></p>
             <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
