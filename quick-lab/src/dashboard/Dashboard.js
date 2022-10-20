@@ -8,6 +8,7 @@ const Dashboard = () => {
     return (
         <div>
            <Sidebar/>
+           {/* <Foooter/> */}
         </div>
     )
 

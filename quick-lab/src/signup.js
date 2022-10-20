@@ -74,6 +74,17 @@ const submitting=()=>{
     {first_name,last_name,username,password,level,} = user
     // console.log("users");
     if (first_name && last_name && username && level && password){
+
+        // React.useEffect(() => {
+        //     axios
+        //         .get('api/profile/')
+        //         .then(function (response) {
+        //             console.log(response);
+        //         })
+        //         .catch(function (error) {
+        //             console.log(error);
+        //         });
+        // });
      axios.post("https://sheltered-earth-23604.herokuapp.com/api/students",user )
 .then(res=>{
         // res.header("Access-Control-Allow-Origin", "*");
