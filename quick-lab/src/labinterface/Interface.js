@@ -19,6 +19,8 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import '../labinterface/interface.css'
+import DigitalTimer from '../labinterface/timer';
+import Foooter from '../Footer';
 
 const drawerWidth = 240;
 
@@ -94,9 +96,16 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className='heading1' variant="h6" noWrap component="div">
+          <div className='header'>
+            <div className='heading1'>
+            <Typography className='heading1' variant="h6" noWrap component="div">
         Titration        
         </Typography>
+            </div>
+         <div className='timer'>
+          <DigitalTimer/>
+         </div>
+          </div> 
         </Toolbar>
       </AppBar>
       <Drawer className='drawer'
@@ -112,13 +121,14 @@ export default function PersistentDrawerLeft() {
         anchor="left"
         open={open}
       >
+         
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
+        <List className='list'>
             <Typography className='instructions'>Instructions</Typography>
             <Typography paragraph>
                
@@ -135,7 +145,7 @@ export default function PersistentDrawerLeft() {
           ))} */}
         </List>
         <Divider />
-        <List>
+        <List  className='list'>
         {/* <Typography className='instructions'>Tools and Equipment</Typography> */}
           {/* {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem key={text} disablePadding>
@@ -155,7 +165,11 @@ export default function PersistentDrawerLeft() {
           
         </Typography>
         <Typography paragraph>
-          
+        <div className='interface'>
+        {/* <DigitalTimer/> */}
+          </div>  
+        <button className='clear'>Clear</button>
+          <button className='record'>Record Observation</button>
         </Typography>
       </Main>
       <Drawer className='drawer'
@@ -177,24 +191,23 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
+        <List className='list'>
             <Typography className='instructions'>Lab Equipment</Typography>
             <Typography paragraph>
-               
         </Typography>
           {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
+            <ListItem  key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText  primary={text} />
               </ListItemButton>
             </ListItem>
           ))} */}
         </List>
         <Divider />
-        <List>
+        <List className='list '>
         {/* <Typography className='instructions'>Tools and Equipment</Typography> */}
           {/* {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem key={text} disablePadding>
@@ -208,8 +221,9 @@ export default function PersistentDrawerLeft() {
           ))} */}
         </List>
       </Drawer>
-      
+      <Foooter/>
     </Box>
-    
+ 
   );
+ 
 }

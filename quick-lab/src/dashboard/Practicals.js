@@ -10,10 +10,6 @@ import { Link, useNavigate} from 'react-router-dom';
 
 
 
-
-
-
-
 const Practicals=()=>{
   const navigate = useNavigate()
 
@@ -66,9 +62,9 @@ const handleDetails = e =>{
     if (searchInput !== '') {
       // console.log('Woww')
     const filteredData = practicals.filter((item) => {
-      // if(item.title==topic && item.subject==subject){
+      if(item.title==topic && item.subject==subject){
         
-      // }
+      }
         return Object.values(item.title).join('').toLowerCase().includes(searchInput.toLowerCase())
     })
     console.log('filtered data are ',filteredData)
@@ -104,10 +100,14 @@ else{
          
       }
       }
-      const navigatetoInterface = (e) => {
-          navigate('/canvas')
-          e.preventDefault()
+      const navigatetoInterface = (value) => {
+        // e.preventDefault()
+        console.log(value)
+          // navigate('/canvas')
+          
+          // getInstructions()
       }
+    const[instructions, setInstructions] = useState('')
 
 
     // const filterItems=(levelInput,)  
@@ -115,7 +115,8 @@ else{
     const fetchPractical=()=>{
          axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
     .then(res=>{
-        setPracticals(res.data)       
+        setPracticals(res.data)  
+      //  console.log(res.data.instructions)      
         })
         .catch(error=>{
             console.log(error)
@@ -123,6 +124,12 @@ else{
     }
     const len=filteredResults.length
     
+    const getInstructions =() => {
+      practicals.map(item=>
+          console.log(item.instructions)
+      )
+
+    }
     
 
     // console.log(search)
@@ -182,12 +189,12 @@ else{
           </div> || practicals.length>=1 && <div className='all_practicals'>
 
             
-             <div className='one'>
+             <div className='one' value={practicals[0].title} onClick={e=> {navigatetoInterface(e.target.value)}}>
              <img className='picture' src={image} alt='practical'/>
              <p className='practical_title'><b>{practicals[0].title}</b></p>
              <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
          </div>
-         <div className='one'>
+         <div className='one' onClick={value=>navigatetoInterface({value:practicals[1].title}.value)}>
              <img className='picture' src={image} alt='practical'/>
              <p className='practical_title'><b>{practicals[1].title}</b></p>
              <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
