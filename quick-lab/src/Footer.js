@@ -1,9 +1,11 @@
 import  react from 'react';
+import './dashboard/dashboard.css';
+
 
 const Foooter = () => {
 
    return(
-      <div className="container">
+      <div className="footer">
          <p>&copy;Cheche 2022</p>
       </div>
    )

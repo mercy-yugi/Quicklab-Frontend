@@ -7,6 +7,7 @@ import {BsEmojiSmileFill,BsPersonCircle} from 'react-icons/bs';
 import Select from 'react-select'
 import '../dashboard/dashboard.css';
 import { Link, useNavigate} from 'react-router-dom';
+import Footer from '../Footer';
 
 
 
@@ -103,7 +104,7 @@ else{
       const navigatetoInterface = (value) => {
         // e.preventDefault()
         console.log(value)
-          // navigate('/canvas')
+          navigate('/canvas')
           
           // getInstructions()
       }
@@ -180,7 +181,7 @@ else{
             
         {len>=1 && <div className='all_practicals'>
           {filteredResults.map(item=>(
-            <div className='one'>
+            <div className='one' >
             <img className='picture' src={image} alt='practical'/>
             <p className='practical_title'><b>{item.title}</b></p>
             <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
@@ -189,22 +190,22 @@ else{
           </div> || practicals.length>=1 && <div className='all_practicals'>
 
             
-             <div className='one' value={practicals[0].title} onClick={e=> {navigatetoInterface(e.target.value)}}>
+             <div className='one' value={practicals[0].title} onClick={value=>navigatetoInterface({value:practicals[0].title}.value)}>
              <img className='picture' src={image} alt='practical'/>
              <p className='practical_title'><b>{practicals[0].title}</b></p>
              <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
          </div>
-         <div className='one' onClick={value=>navigatetoInterface({value:practicals[1].title}.value)}>
+         <div className='one'  value={practicals[1].title} onClick={value=>navigatetoInterface({value:practicals[1].title}.value)}>
              <img className='picture' src={image} alt='practical'/>
              <p className='practical_title'><b>{practicals[1].title}</b></p>
              <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
          </div>
-         <div className='one'>
+         <div className='one'  value={practicals[2].title} onClick={value=>navigatetoInterface({value:practicals[2].title}.value)}>
              <img className='picture' src={image} alt='practical'/>
              <p className='practical_title'><b>{practicals[2].title}</b></p>
              <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
          </div>
-         <div className='one'>
+         <div className='one'  value={practicals[3].title} onClick={value=>navigatetoInterface({value:practicals[3].title}.value)}>
              <img className='picture' src={image} alt='practical'/>
              <p className='practical_title'><b>{practicals[3].title}</b></p>
              <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
@@ -269,7 +270,7 @@ else{
                 <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
         </div>
-
+      <Footer/>
         
       </div>
     )}

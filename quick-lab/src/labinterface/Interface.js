@@ -20,7 +20,9 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import '../labinterface/interface.css'
 import DigitalTimer from '../labinterface/timer';
-import Foooter from '../Footer';
+import Footer from '../Footer';
+import '../dashboard/dashboard.css';
+
 
 const drawerWidth = 240;
 
@@ -170,6 +172,7 @@ export default function PersistentDrawerLeft() {
           </div>  
         <button className='clear'>Clear</button>
           <button className='record'>Record Observation</button>
+          <Footer/>
         </Typography>
       </Main>
       <Drawer className='drawer'
@@ -221,7 +224,7 @@ export default function PersistentDrawerLeft() {
           ))} */}
         </List>
       </Drawer>
-      <Foooter/>
+      {/* <Foooter/> */}
     </Box>
  
   );
