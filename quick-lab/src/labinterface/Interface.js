@@ -18,14 +18,13 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import { useEffect, useState } from 'react';
 import '../labinterface/interface.css'
 import DigitalTimer from '../labinterface/timer';
-import Footer from '../Footer';
+import Foooter from '../Footer';
+import axios from "axios";
 import '../dashboard/dashboard.css';
-
-
 const drawerWidth = 240;
-
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     flexGrow: 1,
@@ -45,7 +44,6 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
     }),
   }),
 );
-
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
@@ -62,7 +60,6 @@ const AppBar = styled(MuiAppBar, {
     }),
   }),
 }));
-
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -71,19 +68,50 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
 }));
-
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
+  const[title, setTitle]=useState('')
+  const [practicals,setPracticals]=useState([])
+  const [instructions,setInstructions]=useState('')
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  useEffect(()=>{
+    fetchPractical()
+    console.log(practicals)  
+    const title = JSON.parse(localStorage.getItem('title'));  
+    if (title) {
+      setTitle(title);
+      console.log(title)
+       }
+       else{
+        console.log('no title')
+       } 
+       getInstructions() 
+}, [])
+const getInstructions=()=>{
+  if(practicals.length!==0){
+    practicals.map(item => {
+      if(item.title === title){
+        setInstructions(item.instructions)
+        console.log(title,'instructions: ',item.instructions)
+      }
+    })
+  }
+}
+const fetchPractical=()=>{
+  axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
+.then(res=>{
+ setPracticals(res.data)
+ })
+ .catch(error=>{
+     console.log(error)
+ })
+}
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -101,7 +129,7 @@ export default function PersistentDrawerLeft() {
           <div className='header'>
             <div className='heading1'>
             <Typography className='heading1' variant="h6" noWrap component="div">
-        Titration        
+        {title}        
         </Typography>
             </div>
          <div className='timer'>
@@ -135,6 +163,7 @@ export default function PersistentDrawerLeft() {
             <Typography paragraph>
                
         </Typography>
+          <p>{ instructions !=='' && instructions||<span>Instructions Loading</span>}</p>
           {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
@@ -172,7 +201,7 @@ export default function PersistentDrawerLeft() {
           </div>  
         <button className='clear'>Clear</button>
           <button className='record'>Record Observation</button>
-          <Footer/>
+          <Foooter/>
         </Typography>
       </Main>
       <Drawer className='drawer'

@@ -13,12 +13,8 @@ import Select from 'react-select'
 import '../dashboard/dashboard.css';
 import { Link, useNavigate} from 'react-router-dom';
 import Footer from '../Footer';
-
-
-
 const Practicals=()=>{
   const navigate = useNavigate()
-
     const options = [
         { value: 'FORM 4', label: 'Form 4' },
         { value: 'FORM 3', label: 'Form 3' },
@@ -46,7 +42,7 @@ const Practicals=()=>{
         { value: 'Respiration', label: 'Respiration' },
     
       ]
-
+    const[title, setTitle]=useState('')
     const [practicals,setPracticals]=useState([])
     const [searchInput, setSearchInput] = useState('');
   const [filteredResults, setFilteredResults] = useState(practicals);
@@ -54,15 +50,12 @@ const Practicals=()=>{
     level: "",
     subject:"",
     topic:""        
-
 })
-
 const handleDetails = e =>{
     const {name,value} = e.target
     setDetails({
     ...details,//spread operator 
     [name]:value
-
     })
     console.log(details)
     if (searchInput !== '') {
@@ -82,18 +75,14 @@ else{
    
 }
     }
-
-
-
-
-    useEffect((e)=>{
+    useEffect(()=>{
         // e.preventDefault()
         fetchPractical()
+       
     },[])
-
+  
     const searchItems = (searchvalue) => {
       console.log('filtered data are ',filteredResults)
-
         setSearchInput(searchvalue)
         if (searchInput !== '') {
           const filteredData = practicals.filter((item) => {
@@ -108,16 +97,19 @@ else{
       }
       const navigatetoInterface = (value) => {
         // e.preventDefault()
+        setTitle(value)
         console.log(value)
-        navigate('/canvas')
-          
-          // getInstructions()
       }
-    const[instructions, setInstructions] = useState('')
-
-
-    // const filterItems=(levelInput,)  
-
+      useEffect(()=>{
+        console.log(title)
+        localStorage.setItem('title', JSON.stringify(title));
+        if(title!==''){
+          navigate('/canvas')   
+    }
+    else{
+      console.log('You have not selected a practical')
+    }
+    }, [title])
     const fetchPractical=()=>{
          axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
     .then(res=>{
@@ -134,10 +126,8 @@ else{
       practicals.map(item=>
           console.log(item.instructions)
       )
-
     }
     
-
     // console.log(search)
     // if(practicals.length!==0){
 
