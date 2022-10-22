@@ -13,6 +13,9 @@ import Select from 'react-select'
 import '../dashboard/dashboard.css';
 import { Link, useNavigate} from 'react-router-dom';
 import Footer from '../Footer';
+import Sidebar from './Sidebar'
+
+
 const Practicals=()=>{
   const navigate = useNavigate()
     const options = [
@@ -143,7 +146,7 @@ else{
 
     return (
       <div className='practical_container'>
-
+{/* <Sidebar/> */}
 <form action="/" method="get">
       <div className='se_pro'>
       <div>

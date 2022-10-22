@@ -1,6 +1,6 @@
 .home-container-1{
-    background-color: white;
-    width:20%;
+    /* background-color: white; */
+    /* width:20%; */
     height: auto;
     border-top-left-radius:10px;
     border-bottom-left-radius: 10px;
@@ -55,8 +55,8 @@
     color: rgb(247, 227, 9);
 }
 .main-container{
-    background-color: #dcf0fc;
-    display:flex ;
+    /* background-color: #dcf0fc; */
+    /* display:flex ; */
 
 }
 
@@ -101,20 +101,20 @@
 
 .options{
     display: flex; 
-    
     margin-left:4%;
     gap: 5rem;
-
-
 
 }
 .options .topics, .level, .subject{
     margin-top: 2%;
     width:245px ;
     padding: 1px; 
-    /* margin-left: -4%; */
     font-size: 13px;
 
 }
+.content-1{
+    display: flex;
+}
+
 
 
