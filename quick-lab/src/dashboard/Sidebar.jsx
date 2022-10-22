@@ -7,8 +7,9 @@ import logo from '../Images/Quicklab_logo.png';
 // import '../dashboard/dashboard.css';
 import { FaPlus } from "react-icons/fa";
 import Select from 'react-select'
-import Practicals from './Practicals';
+// import Practicals from './Practicals';
 import { searchItems } from './Practicals';
+import './sidebar.css'
 
 
 const Sidebar = ({children}) => {
@@ -29,7 +30,35 @@ const Sidebar = ({children}) => {
            </div>
     </div>
     <div>
-   {children}
+    {/* <form action="/" method="get">
+      <div className='se_pro'>
+      <div>
+        <input 
+            type="text"
+            id="header-search"
+            placeholder="Search practicals"
+            name="s" 
+        /> 
+        </div>
+        <div className='prof'>
+          <BsPersonCircle className='profile'/>
+          </div>
+          </div>
+      
+        <div className='options'>
+          <div className='level'>
+          <Select placeholder="Level" options={options} />
+          </div>
+          <div className='subject'>
+          <Select placeholder="Subject" options={subjects} />
+          </div>
+          <div className='topics'>
+          <Select placeholder="Topics" options={topics} />
+          </div>
+        
+        </div>   
+    </form> */}
+{children}
     {/* <Practicals/> */}
     </div>
     </div>
