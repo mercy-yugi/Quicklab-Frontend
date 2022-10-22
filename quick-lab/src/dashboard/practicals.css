@@ -61,3 +61,11 @@
 .practical_description{
     font-size: 9px;
 }
+.footer{
+    /* margin-left:30%;
+    margin-top:5%; */
+    text-align: center;
+}
+.all_practicals .one img{
+    background-color: #e3f1fb;
+}

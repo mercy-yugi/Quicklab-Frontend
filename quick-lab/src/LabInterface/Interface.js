@@ -18,12 +18,13 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import '../labinterface/interface.css'
-import DigitalTimer from '../labinterface/timer';
+import { useEffect, useState } from 'react';
+import '/home/user/Documents/QUICK-LAB-FRONTEND/quick-lab/src/LabInterface/interface.css'
+import DigitalTimer from '/home/user/Documents/QUICK-LAB-FRONTEND/quick-lab/src/LabInterface/timer.css';
 import Foooter from '../Footer';
-
+import axios from "axios";
+import '../dashboard/dashboard.css';
 const drawerWidth = 240;
-
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     flexGrow: 1,
@@ -43,7 +44,6 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
     }),
   }),
 );
-
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
@@ -60,7 +60,6 @@ const AppBar = styled(MuiAppBar, {
     }),
   }),
 }));
-
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -69,19 +68,75 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
 }));
-
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
+  const[title, setTitle]=useState('')
+  const [practicals,setPracticals]=useState([])
+  const [instructions,setInstructions]=useState('')
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  useEffect(()=>{
+    // fetchPractical()
+    console.log(practicals)  
+    const title = JSON.parse(localStorage.getItem('title'));  
+    if (title) {
+      setTitle(title);
+      fetchPractical()
+      console.log(title)
+       }
+       else{
+        console.log('no title')
+       } 
+       
+}, [])
 
+
+
+const getInstructions=(pra)=>{
+  if(pra.length!==0){
+    console.log(pra)
+    pra.map(item => {
+      console.log(item.title)
+      if(item.title === title){
+        console.log(title,'instructions: ',item.instructions)
+        return setInstructions(item.instructions) 
+        
+      }
+      else{
+        console.log('whats wrong');
+        // setInstructions(item.instructions)
+      }
+    })
+  }
+  else{
+    console.log('hhhh')
+  }
+}
+
+const checkTitle=(v)=>{
+   if(v===title){
+
+   }
+}
+
+
+const fetchPractical=()=>{
+  axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
+.then(res=>{
+  console.log(res.data)
+//  setPracticals(res.data)
+ getInstructions(res.data) 
+ 
+ })
+ .catch(error=>{
+     console.log(error)
+ })
+}
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -99,7 +154,7 @@ export default function PersistentDrawerLeft() {
           <div className='header'>
             <div className='heading1'>
             <Typography className='heading1' variant="h6" noWrap component="div">
-        Titration        
+        {title}        
         </Typography>
             </div>
          <div className='timer'>
@@ -133,30 +188,12 @@ export default function PersistentDrawerLeft() {
             <Typography paragraph>
                
         </Typography>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          <p>{instructions !=='' ? instructions :<span>Instructions Loading</span>}</p>
+         
         </List>
         <Divider />
         <List  className='list'>
-        {/* <Typography className='instructions'>Tools and Equipment</Typography> */}
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+       
         </List>
       </Drawer>
       <Main open={open}>
@@ -170,6 +207,7 @@ export default function PersistentDrawerLeft() {
           </div>  
         <button className='clear'>Clear</button>
           <button className='record'>Record Observation</button>
+          <Foooter/>
         </Typography>
       </Main>
       <Drawer className='drawer'
@@ -195,33 +233,14 @@ export default function PersistentDrawerLeft() {
             <Typography className='instructions'>Lab Equipment</Typography>
             <Typography paragraph>
         </Typography>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem  key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText  primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+         
         </List>
         <Divider />
         <List className='list '>
-        {/* <Typography className='instructions'>Tools and Equipment</Typography> */}
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+        
         </List>
       </Drawer>
-      <Foooter/>
+      {/* <Foooter/> */}
     </Box>
  
   );

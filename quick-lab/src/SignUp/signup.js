@@ -2,7 +2,7 @@ import './signup.css';
 // import Footer from './Footer';
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate} from 'react-router-dom';
-import myimage from './Images/Group 76.png'
+import myimage from '../Images/Group 76.png'
 import { FaLock } from "react-icons/fa";
 import { AiFillLayout} from "react-icons/ai";
 import { BsPersonFill } from "react-icons/bs";
@@ -74,7 +74,8 @@ const submitting=()=>{
     {first_name,last_name,username,password,level,} = user
     // console.log("users");
     if (first_name && last_name && username && level && password){
-     axios.post("https://sheltered-earth-23604.herokuapp.com/api/students",user )
+    
+        axios.post("https://sheltered-earth-23604.herokuapp.com/api/students",user )
 .then(res=>{
         // res.header("Access-Control-Allow-Origin", "*");
         console.log(res)

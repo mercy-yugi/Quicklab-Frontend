@@ -11,7 +11,7 @@ import Practicals from './Practicals';
 import { searchItems } from './Practicals';
 
 
-const Sidebar = () => {
+const Sidebar = ({chilren}) => {
   // const options = [
   //   { value: 'FORM 4', label: 'Form 4' },
   //   { value: 'FORM 3', label: 'Form 3' },
@@ -96,7 +96,7 @@ const Sidebar = () => {
         
         </div>   
     </form> */}
-
+{chilren}
     <Practicals/>
     </div>
     </div>
