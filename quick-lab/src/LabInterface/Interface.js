@@ -19,8 +19,8 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { useEffect, useState } from 'react';
-import '/home/user/Documents/QUICK-LAB-FRONTEND/quick-lab/src/LabInterface/interface.css'
-import DigitalTimer from '/home/user/Documents/QUICK-LAB-FRONTEND/quick-lab/src/LabInterface/timer.css';
+import '../LabInterface/interface.css'
+import DigitalTimer from '../LabInterface/timer.css';
 import Foooter from '../Footer';
 import axios from "axios";
 import '../dashboard/dashboard.css';

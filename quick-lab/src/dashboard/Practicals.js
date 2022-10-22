@@ -10,7 +10,6 @@ import { useEffect, useState } from 'react';
 import axios from "axios";
 import {BsEmojiSmileFill,BsPersonCircle} from 'react-icons/bs';
 import Select from 'react-select'
-import '../dashboard/dashboard.css';
 import { Link, useNavigate} from 'react-router-dom';
 import Footer from '../Footer';
 const Practicals=()=>{
