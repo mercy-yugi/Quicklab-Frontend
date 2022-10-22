@@ -19,8 +19,8 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { useEffect, useState } from 'react';
-import '../labinterface/interface.css'
-import DigitalTimer from '../labinterface/timer';
+import '/home/user/Documents/QUICK-LAB-FRONTEND/quick-lab/src/LabInterface/interface.css'
+import DigitalTimer from '/home/user/Documents/QUICK-LAB-FRONTEND/quick-lab/src/LabInterface/timer.css';
 import Foooter from '../Footer';
 import axios from "axios";
 import '../dashboard/dashboard.css';
@@ -81,32 +81,57 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
   useEffect(()=>{
-    fetchPractical()
+    // fetchPractical()
     console.log(practicals)  
     const title = JSON.parse(localStorage.getItem('title'));  
     if (title) {
       setTitle(title);
+      fetchPractical()
       console.log(title)
        }
        else{
         console.log('no title')
        } 
-       getInstructions() 
+       
 }, [])
-const getInstructions=()=>{
-  if(practicals.length!==0){
-    practicals.map(item => {
+
+
+
+const getInstructions=(pra)=>{
+  if(pra.length!==0){
+    console.log(pra)
+    pra.map(item => {
+      console.log(item.title)
       if(item.title === title){
-        setInstructions(item.instructions)
         console.log(title,'instructions: ',item.instructions)
+        return setInstructions(item.instructions) 
+        
+      }
+      else{
+        console.log('whats wrong');
+        // setInstructions(item.instructions)
       }
     })
   }
+  else{
+    console.log('hhhh')
+  }
 }
+
+const checkTitle=(v)=>{
+   if(v===title){
+
+   }
+}
+
+
 const fetchPractical=()=>{
   axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
 .then(res=>{
- setPracticals(res.data)
+  console.log(res.data)
+//  setPracticals(res.data)
+ getInstructions(res.data) 
+ 
  })
  .catch(error=>{
      console.log(error)
@@ -163,31 +188,12 @@ const fetchPractical=()=>{
             <Typography paragraph>
                
         </Typography>
-          <p>{ instructions !=='' && instructions||<span>Instructions Loading</span>}</p>
-          {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))} */}
+          <p>{instructions !=='' ? instructions :<span>Instructions Loading</span>}</p>
+         
         </List>
         <Divider />
         <List  className='list'>
-        {/* <Typography className='instructions'>Tools and Equipment</Typography> */}
-          {/* {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))} */}
+       
         </List>
       </Drawer>
       <Main open={open}>
@@ -227,30 +233,11 @@ const fetchPractical=()=>{
             <Typography className='instructions'>Lab Equipment</Typography>
             <Typography paragraph>
         </Typography>
-          {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem  key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText  primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))} */}
+         
         </List>
         <Divider />
         <List className='list '>
-        {/* <Typography className='instructions'>Tools and Equipment</Typography> */}
-          {/* {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))} */}
+        
         </List>
       </Drawer>
       {/* <Foooter/> */}

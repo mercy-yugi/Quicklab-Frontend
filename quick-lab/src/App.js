@@ -1,11 +1,11 @@
 import './App.css';
 import { BrowserRouter as Router, Route , Routes } from "react-router-dom";
-import SignupForm from './signup';
+import SignupForm from './SignUp/signup';
 import LoginForm from './Login/login';
 import Dashboard from './dashboard/Dashboard';
 import Practicals from './dashboard/Practicals';
-import Interface from './labinterface/Interface';
-import DigitalTimer from './labinterface/timer';
+import Interface from '../src/LabInterface/Interface';
+// import DigitalTimer from '../src/LabInterface/';
 
 
 function App() {
