@@ -7,8 +7,9 @@ import logo from '../Images/Quicklab_logo.png';
 import '../dashboard/dashboard.css';
 import { FaPlus } from "react-icons/fa";
 import Select from 'react-select'
-import Practicals from './Practicals';
+// import Practicals from './Practicals';
 import { searchItems } from './Practicals';
+import './sidebar.css'
 
 
 const Sidebar = ({chilren}) => {
@@ -97,7 +98,7 @@ const Sidebar = ({chilren}) => {
         </div>   
     </form> */}
 {chilren}
-    <Practicals/>
+    {/* <Practicals/> */}
     </div>
     </div>
   );
