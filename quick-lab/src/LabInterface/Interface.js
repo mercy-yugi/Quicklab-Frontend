@@ -10,20 +10,18 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { useEffect, useState } from 'react';
 import '../LabInterface/interface.css'
-import DigitalTimer from '../LabInterface/timer.css';
+import DigitalTimer from '../LabInterface/timer.js';
 import Foooter from '../Footer';
 import axios from "axios";
 import '../dashboard/dashboard.css';
+import { Link, useNavigate} from 'react-router-dom';
+
+
 const drawerWidth = 240;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -94,6 +92,14 @@ export default function PersistentDrawerLeft() {
        } 
        
 }, [])
+const navigate = useNavigate()
+
+
+const goHome = () => {
+  navigate('/home')
+
+
+}
 
 
 
@@ -103,7 +109,7 @@ const getInstructions=(pra)=>{
     pra.map(item => {
       console.log(item.title)
       if(item.title === title){
-        console.log(title,'instructions: ',item.instructions)
+        // console.log(title,'instructions: ',item.instructions)
         return setInstructions(item.instructions) 
         
       }
@@ -117,13 +123,6 @@ const getInstructions=(pra)=>{
     console.log('hhhh')
   }
 }
-
-const checkTitle=(v)=>{
-   if(v===title){
-
-   }
-}
-
 
 const fetchPractical=()=>{
   axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
@@ -140,6 +139,7 @@ const fetchPractical=()=>{
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
+
       <AppBar  position="fixed" open={open} >
         <Toolbar className='appbar'>
           <IconButton
@@ -153,14 +153,19 @@ const fetchPractical=()=>{
           </IconButton>
           <div className='header'>
             <div className='heading1'>
+            {/* {ArrowBackIcon} */}
             <Typography className='heading1' variant="h6" noWrap component="div">
-        {title}        
+            {title}        
         </Typography>
+ 
             </div>
+          
          <div className='timer'>
           <DigitalTimer/>
          </div>
+         <HomeIcon  className='home'   onClick={goHome}/>
           </div> 
+          
         </Toolbar>
       </AppBar>
       <Drawer className='drawer'

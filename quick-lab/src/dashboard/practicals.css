@@ -1,7 +1,7 @@
 .practical_container{
     background-color: #dcf0fc;
-    margin-left: 5%;
-    width: 100%;
+    /* margin-left: 2%; */
+    /* width: 80%; */
     /* margin-bottom: 2%; */
 }
 .all_practicals{
@@ -40,9 +40,7 @@
     transform: scale(1.1);
 
 }
-.one p{
-    /* margin: 0; */
-}
+
 .picture{
     width: 100%;
     border-radius: 10px;
@@ -69,69 +67,6 @@
 .all_practicals .one img{
     background-color: #e3f1fb;
 }
-
-.home-container-1{
-    background-color: white;
-    width:20%;
-    height: auto;
-    border-top-left-radius:10px;
-    border-bottom-left-radius: 10px;
-}
-.home-container-1 .logo img{
-  margin-left: 30%;
-  margin-top: 18%;
-
-}
-.home-container-1 h4{
-    font-size: 20px;
-    margin-top: 22%;
-    color:#00A9E5;
-    text-align: center;
-} 
-
-.home-container-1 p{
-    margin-top: -5%;
-    color:#000000;
-    text-align: center;
-} 
-
-.home-container-1 .icon{
-    color: #00A9E5;
-    margin-top:3%;
-    padding-left:10px;
-}
-
-.plus{
-    border:2px solid #00A9E5;
-    border-radius:10px;
-    width: 70px;
-    padding: 50px;
-    font-size:30px;
-    margin-left: 15%;
-    margin-top:14%;
-    box-shadow: 1.5px 1.5px 1.5px 0px rgba(0,0,0,0.30);
-    -webkit-box-shadow: 1.5px 1.5px 1.5px 0px rgba(0,0,0,0.30);
-    -moz-box-shadow: 1.5px 1.5px 1.5px 0px rgba(0,0,0,0.30);
-
-}
-.icon p{
-    color: black;
-
-    margin-top:-15%;
-
-}
-.home-container-1 .smile{
-    margin-top: 4%;
-    margin-left: 45%;
-    font-size:30px;
-    color: rgb(247, 227, 9);
-}
-.main-container{
-    background-color: #dcf0fc;
-    display:flex ;
-
-}
-
 .profile{
     font-size:40px;
     color: #00A9E5;
@@ -144,7 +79,6 @@
 
 .se_pro{
     display: flex;
-
     margin-bottom: 3%;
 }
 .se_pro input{

@@ -4,9 +4,7 @@ import SignupForm from './SignUp/signup';
 import LoginForm from './Login/login';
 import Dashboard from './dashboard/Dashboard';
 import Practicals from './dashboard/Practicals';
-import Interface from './LabInterface/Interface2';
-// import DigitalTimer from '../src/LabInterface/';
-
+import Interface from './LabInterface/Interface';
 
 function App() {
   return (

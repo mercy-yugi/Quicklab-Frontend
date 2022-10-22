@@ -1,6 +1,9 @@
-.main{
-display:flex;
+.dash{
+    display: flex;
 }
-
-
-
+.sd{
+    width: 20%;
+}
+.pr{
+    width: 80%;
+}

@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import './timer.css'
+import '../LabInterface/timer.css'
 import RestartAlt from '@mui/icons-material/RestartAlt';
 import PauseCircleFilledIcon from '@mui/icons-material/PauseCircleFilled';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';

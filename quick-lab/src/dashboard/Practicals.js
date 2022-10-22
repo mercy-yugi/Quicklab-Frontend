@@ -10,7 +10,6 @@ import { useEffect, useState } from 'react';
 import axios from "axios";
 import {BsEmojiSmileFill,BsPersonCircle} from 'react-icons/bs';
 import Select from 'react-select'
-import '../dashboard/dashboard.css';
 import { Link, useNavigate} from 'react-router-dom';
 import Footer from '../Footer';
 import Sidebar from './Sidebar'
@@ -82,8 +81,16 @@ else{
     useEffect(()=>{
         // e.preventDefault()
         fetchPractical()
+        console.log(title)
+        localStorage.setItem('title', JSON.stringify(title));
+        if(title!==''){
+          navigate('/canvas')   
+    }
+    else{
+      console.log('You have not selected a practical')
+    }
        
-    },[])
+    },[title])
   
     const searchItems = (searchvalue) => {
       console.log('filtered data are ',filteredResults)
@@ -102,26 +109,17 @@ else{
       const navigatetoInterface = (value) => {
         // e.preventDefault()
         setTitle(value)
-        console.log(value)
-        
-        if(title!==''){
-          navigate('/canvas') 
-          localStorage.setItem('title', JSON.stringify(title));  
-    }
-    else{
-      console.log('You have not selected a practical')
-    }
-       
+        console.log(value)  
       }
     //   useEffect(()=>{
     //     console.log(title)
-    // //     localStorage.setItem('title', JSON.stringify(title));
-    // //     if(title!==''){
-    // //       navigate('/canvas')   
-    // // }
-    // // else{
-    // //   console.log('You have not selected a practical')
-    // // }
+    //     localStorage.setItem('title', JSON.stringify(title));
+    //     if(title!==''){
+    //       navigate('/canvas')   
+    // }
+    // else{
+    //   console.log('You have not selected a practical')
+    // }
     // }, [title])
     const fetchPractical=()=>{
          axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
