@@ -55,7 +55,7 @@
 }
 .timer{
     float: right;
-    margin-left:190%;
+    margin-left:150%;
     color: black;
     margin-top:-2%;
 }
@@ -64,9 +64,9 @@
 }
 .home{
     margin-left:15%;
-    margin-top:9%;
+    margin-top:7%;
     padding:2px;
-    background-color: whitesmoke;
+    background-color: rgb(255, 255, 255);
     /* font-size:50px; */
     border-radius:50%;
 }
