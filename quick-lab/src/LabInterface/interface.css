@@ -15,29 +15,35 @@
 .listtext{
     background-color: chartreuse;
 }
-button{
-   /* background-color: blueviolet; */
-   margin-top:47%;
-   padding:10px;
-  gap: 5rem;
+.buttons{
+    margin-left:30%;
+    margin-top:2%;
+    margin-bottom: 2%;
 }
 .record{
-    margin-left:35%;
+    margin-left:5%;
     padding:15px;
-    width:30%;
+    width:20%;
     background-color:rgb(31, 179, 225) ;
     border-style: none;
     color: whitesmoke;
     border-radius:3px;
+    transition: transform 500ms ease;
+
 }
 .clear{
     margin-left:5%;
     border-radius:3px;
     padding:15px;
-    width:30%;
+    width:20%;
     background-color:rgb(90, 93, 94) ;
     border-style: none;
     color: whitesmoke;
+    transition: transform 500ms ease;
+
+}
+.clear:hover, .record:hover{
+    transform: scale(1.1);
 }
 /* .interface{
     background-color: black;
@@ -65,5 +71,6 @@ button{
     border-radius:50%;
 }
 .main{
-    /* background-color: red; */
+    height: 85vh;
+    background-color: rgb(165, 229, 238);
 }

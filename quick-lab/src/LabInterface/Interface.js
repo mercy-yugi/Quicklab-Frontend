@@ -79,14 +79,6 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
   useEffect(()=>{
-    // const title = JSON.parse(localStorage.getItem('title'));  
-    // if (title) {
-    //   setTitle(title);
-    //   console.log(title)
-    //    }
-    //    else{
-    //     console.log('no title')
-    //    } 
        fetchPractical()
 
        
@@ -120,7 +112,6 @@ const fetchPractical=()=>{
      else{
       console.log('no title')
      } 
-
   axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
 .then(res=>{
   getInstructions(res.data, title)
@@ -131,7 +122,7 @@ const fetchPractical=()=>{
  })
 }
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: '' }}>
       <CssBaseline />
 
       <AppBar  position="fixed" open={open} >
@@ -204,9 +195,6 @@ const fetchPractical=()=>{
         <div className='interface'>
         {/* <DigitalTimer/> */}
           </div>  
-        <button className='clear'>Clear</button>
-          <button className='record'>Record Observation</button>
-          <Foooter/>
         </Typography>
       </Main>
       <Drawer className='drawer'
@@ -239,7 +227,11 @@ const fetchPractical=()=>{
         
         </List>
       </Drawer>
-      {/* <Foooter/> */}
+    <div className='buttons'>
+    <button className='clear'>Clear</button>
+          <button className='record'>Record Observation</button>
+    </div>
+      <Foooter/>
     </Box>
  
   );
