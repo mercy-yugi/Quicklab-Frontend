@@ -12,7 +12,6 @@ import {BsEmojiSmileFill,BsPersonCircle} from 'react-icons/bs';
 import Select from 'react-select'
 import { Link, useNavigate} from 'react-router-dom';
 import Footer from '../Footer';
-import Sidebar from './Sidebar'
 
 
 const Practicals=()=>{
