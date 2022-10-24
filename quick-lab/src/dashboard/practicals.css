@@ -10,7 +10,7 @@
 }
 .see_all{
     display: inline;
-    /* float: right; */
+    cursor: grab;
     margin-left: 87%;
     color:#00A9E5;
 }
@@ -28,9 +28,8 @@
     color: rgb(3, 50, 68);
     padding: 3px;
     width: 164px;
-    /* height:150px ; */
+    cursor: grab;
     text-align: center;
-    /* margin-top: 2%; */
     margin: 1% 1% 0% 5.5%;
     border-radius: 10px;
     box-shadow: 1px 1px 10px rgb(153, 151, 151);

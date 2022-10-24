@@ -79,17 +79,16 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
   useEffect(()=>{
-    // fetchPractical()
-    console.log(practicals)  
-    const title = JSON.parse(localStorage.getItem('title'));  
-    if (title) {
-      setTitle(title);
-      fetchPractical()
-      console.log(title)
-       }
-       else{
-        console.log('no title')
-       } 
+    // const title = JSON.parse(localStorage.getItem('title'));  
+    // if (title) {
+    //   setTitle(title);
+    //   console.log(title)
+    //    }
+    //    else{
+    //     console.log('no title')
+    //    } 
+       fetchPractical()
+
        
 }, [])
 const navigate = useNavigate()
@@ -102,35 +101,30 @@ const goHome = () => {
 }
 
 
-
-const getInstructions=(pra)=>{
-  if(pra.length!==0){
+const getInstructions=(pra,tit)=>{
     console.log(pra)
     pra.map(item => {
-      console.log(item.title)
-      if(item.title === title){
-        // console.log(title,'instructions: ',item.instructions)
-        return setInstructions(item.instructions) 
-        
-      }
-      else{
-        console.log('whats wrong');
-        // setInstructions(item.instructions)
+      if(item.title === tit){ 
+        console.log(tit)
+        setInstructions(item.instructions)   
       }
     })
-  }
-  else{
-    console.log('hhhh')
-  }
 }
 
 const fetchPractical=()=>{
+  const title = JSON.parse(localStorage.getItem('title'));  
+  if (title) {
+    setTitle(title);
+    console.log(title)
+     }
+     else{
+      console.log('no title')
+     } 
+
   axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
 .then(res=>{
-  console.log(res.data)
-//  setPracticals(res.data)
- getInstructions(res.data) 
- 
+  getInstructions(res.data, title)
+
  })
  .catch(error=>{
      console.log(error)

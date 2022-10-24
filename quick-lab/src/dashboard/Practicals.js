@@ -12,7 +12,6 @@ import {BsEmojiSmileFill,BsPersonCircle} from 'react-icons/bs';
 import Select from 'react-select'
 import { Link, useNavigate} from 'react-router-dom';
 import Footer from '../Footer';
-import Sidebar from './Sidebar'
 
 
 const Practicals=()=>{
@@ -86,9 +85,9 @@ else{
         if(title!==''){
           navigate('/canvas')   
     }
-    else{
-      console.log('You have not selected a practical')
-    }
+    // else{
+    //   console.log('You have not selected a practical')
+    // }
        
     },[title])
   
@@ -109,6 +108,7 @@ else{
       const navigatetoInterface = (value) => {
         // e.preventDefault()
         setTitle(value)
+        // setInstructions()
         console.log(value)  
       }
     //   useEffect(()=>{
@@ -125,7 +125,7 @@ else{
          axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
     .then(res=>{
         setPracticals(res.data)  
-      //  console.log(res.data.instructions)      
+       console.log(res.data)      
         })
         .catch(error=>{
             console.log(error)
@@ -133,11 +133,11 @@ else{
     }
     const len=filteredResults.length
     
-    const getInstructions =() => {
-      practicals.map(item=>
-          console.log(item.instructions)
-      )
-    }
+    // const getInstructions =() => {
+    //   practicals.map(item=>
+    //       console.log(item.instructions)
+    //   )
+    // }
     
     // console.log(search)
     // if(practicals.length!==0){
@@ -187,19 +187,20 @@ else{
             
         {len>=1 && <div className='all_practicals'>
           {filteredResults.slice(0,4).map(item=>(
-            <div className='one'  onClick={value=>navigatetoInterface({value:item.title}.value)}>
+            <div className='one' key={item.title} onClick={value=>navigatetoInterface({value:item.title}.value)}>
             <img className='picture' src={cell} alt='practical'/>
             <p className='practical_title'><b>{item.title}</b></p>
-            <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
+            <p className="practical_description" >{item.description}</p>
         </div>
+        
           ))} 
           </div> || practicals.length>=1 && <div className='all_practicals'>
            
           {practicals.slice(0,4).map(item=>(
-            <div className='one'  onClick={value=>navigatetoInterface({value:item.title}.value)}>
+            <div className='one' key={item.title} onClick={value=>navigatetoInterface({value:item.title}.value)}>
             <img className='picture' src={cell} alt='practical'/>
             <p className='practical_title'><b>{item.title}</b></p>
-            <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
+            <p className="practical_description" >{item.description}</p>
         </div>
           ))}
           </div>}     
