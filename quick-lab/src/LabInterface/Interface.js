@@ -163,7 +163,7 @@ const fetchPractical=()=>{
          <div className='timer'>
           <DigitalTimer/>
          </div>
-         <HomeIcon  className='home'   onClick={goHome}/>
+         <HomeIcon  className='home'  onClick={goHome}/>
           </div> 
           
         </Toolbar>
@@ -201,7 +201,7 @@ const fetchPractical=()=>{
        
         </List>
       </Drawer>
-      <Main open={open}>
+      <Main open={open} className='main'>
         <DrawerHeader />
         <Typography paragraph>
           

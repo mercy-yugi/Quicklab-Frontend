@@ -15,7 +15,7 @@
    width:30%;
    margin-right:20%;
    padding:15px;
-   margin-left: 5%;
+   margin-left: 2%;
 }
 .firstname-1{
     display:flex;
@@ -145,7 +145,7 @@
 
 .password-1 .icons{
     color: #00A9E5;
-    margin-top: 20%;
+    margin-top: 10%;
     font-size:15px;
 }
 

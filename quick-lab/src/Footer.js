@@ -2,7 +2,7 @@ import  react from 'react';
 import './dashboard/dashboard.css';
 
 
-const Foooter = () => {
+const Footer = () => {
 
    return(
       <div className="footer">
@@ -10,4 +10,4 @@ const Foooter = () => {
       </div>
    )
 };
-export default Foooter;
+export default Footer;

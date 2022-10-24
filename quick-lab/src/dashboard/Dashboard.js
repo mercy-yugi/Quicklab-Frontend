@@ -2,7 +2,7 @@ import react from 'react';
 import logo from '../Images/Quicklab_logo.png';
 import '../dashboard/dashboard.css';
 import Sidebar from '../sidebar/Sidebar';
-import Foooter from '../Footer';
+import Footer from '../Footer';
 import Practicals from './Practicals';
 
 const Dashboard = () => {

@@ -9,8 +9,6 @@ import Interface from './LabInterface/Interface';
 function App() {
   return (
     <div>
-      {/* <Dashboard/> */}
-      {/* <DigitalTimer/> */}
   <Router>
   <Routes>
         <Route path="/" element={<SignupForm/>}/>
