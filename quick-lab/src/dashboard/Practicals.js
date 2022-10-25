@@ -136,7 +136,6 @@ else{
 
     }
     
-
     // console.log(search)
     // if(practicals.length!==0){
 
@@ -195,22 +194,22 @@ else{
 
             
              <div className='one' value={practicals[0].title} onClick={e=> {navigatetoInterface(e.target.value)}}>
-             <img className='picture' src={pend} alt='practical'width="300px" height="120"/>
+             <img className='picture' src={pend} alt='practical'width="800px" height="120"/>
              <p className='practical_title'><b>{practicals[0].title}</b></p>
              <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
          </div>
          <div className='one' onClick={value=>navigatetoInterface({value:practicals[1].title}.value)}>
-             <img className='picture' src={elect} alt='practical'width="350px" height="120"/>
+             <img className='picture' src={elect} alt='practical'width="800px" height="120"/>
              <p className='practical_title'><b>{practicals[1].title}</b></p>
              <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
          </div>
          <div className='one'>
-             <img className='picture' src={flame} alt='practical'width="400px" height="120"/>
+             <img className='picture' src={flame} alt='practical'width="800px" height="120"/>
              <p className='practical_title'><b>{practicals[2].title}</b></p>
              <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
          </div>
          <div className='one'>
-             <img className='picture' src={cell} alt='practical'width="300px" height="120"/>
+             <img className='picture' src={cell} alt='practical'width="800px" height="120"/>
              <p className='practical_title'><b>{practicals[3].title}</b></p>
              <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
          </div>
@@ -251,25 +250,25 @@ else{
         <div className='see_all'> <span>See all</span> <FaLongArrowAltRight className='arrow' /></div>
         <div className='all_practicals'>
             <div className='one'>
-                <img className='picture' src={flame} alt='practical'width="350px" height="120"/>
+                <img className='picture' src={flame} alt='practical'width="800px" height="120"/>
                 <p className='practical_title'><b>Titration</b></p>
                 <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
 
             <div className='one'>
-                <img className='picture' src={solu} alt='practical'width="300px" height="120"/>
+                <img className='picture' src={solu} alt='practical'width="800px" height="120"/>
                 <p className='practical_title'><b>Titration</b></p>
                 <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
 
             <div className='one'>
-                <img className='picture' src={themo} alt='practical'width="300px" height="120"/>
+                <img className='picture' src={themo} alt='practical'width="800px" height="120"/>
                 <p className='practical_title'><b>Titration</b></p>
                 <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
 
             <div className='one'>
-                <img className='picture' src={pend} alt='practical'width="300px" height="120"/>
+                <img className='picture' src={pend} alt='practical'width="800px" height="120"/>
                 <p className='practical_title'><b>Titration</b></p>
                 <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
