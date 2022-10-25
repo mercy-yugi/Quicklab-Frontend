@@ -1,13 +1,19 @@
 import react from 'react';
 import logo from '../Images/Quicklab_logo.png';
 import '../dashboard/dashboard.css';
-import Sidebar from './Sidebar';
-import Foooter from '../Footer';
+import Sidebar from '../sidebar/Sidebar';
+import Footer from '../Footer';
+import Practicals from './Practicals';
 
 const Dashboard = () => {
     return (
-        <div>
+        <div className='dash'>
+            <div className='sd' >
            <Sidebar/>
+           </div>
+           <div className='pr' >
+           <Practicals/>
+           </div>
            {/* <Foooter/> */}
         </div>
     )

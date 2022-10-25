@@ -1,15 +1,16 @@
 .practical_container{
     background-color: #dcf0fc;
-    margin-left: 5%;
-    width: 100%;
-    margin-bottom: 2%;
+    padding:10px;
+    /* margin-left: 2%; */
+    /* width: 80%; */
+    /* margin-bottom: 2%; */
 }
 .all_practicals{
     display: flex;
 }
 .see_all{
     display: inline;
-    /* float: right; */
+    cursor: grab;
     margin-left: 87%;
     color:#00A9E5;
 }
@@ -27,9 +28,8 @@
     color: rgb(3, 50, 68);
     padding: 3px;
     width: 164px;
-    /* height:150px ; */
+    cursor: grab;
     text-align: center;
-    /* margin-top: 2%; */
     margin: 1% 1% 0% 5.5%;
     border-radius: 10px;
     box-shadow: 1px 1px 10px rgb(153, 151, 151);
@@ -40,9 +40,7 @@
     transform: scale(1.1);
 
 }
-.one p{
-    /* margin: 0; */
-}
+
 .picture{
     width: 100%;
     border-radius: 10px;
@@ -61,6 +59,65 @@
 .practical_description{
     font-size: 9px;
 }
+.footer{
+    /* margin-left:30%;
+    margin-top:5%; */
+    text-align: center;
+}
 .all_practicals .one img{
     background-color: #e3f1fb;
+}
+.profile{
+    font-size:40px;
+    color: #00A9E5;
+    border-radius:50%;
+    background-color: #FFFFFF;   
+    
+    
+
+}
+
+.se_pro{
+    display: flex;
+    margin-bottom: 3%;
+}
+.se_pro input{
+    padding: 10px;
+    height: 16px;
+    width: 54vw;
+    border-radius:30px;
+    border: none;
+    margin-left: 5%;
+    margin-top:5%;
+
+
+
+
+  }
+
+.se_pro input:focus{
+    outline: none;
+}
+
+.se_pro .prof{
+   float: right;
+   margin-left: 14%;
+   margin-top: 3.5%;
+}
+
+.options{
+    display: flex; 
+    
+    margin-left:4%;
+    gap: 5rem;
+
+
+
+}
+.options .topics, .level, .subject{
+    margin-top: 2%;
+    width:245px ;
+    padding: 1px; 
+    font-size: 13px;
+
 }
