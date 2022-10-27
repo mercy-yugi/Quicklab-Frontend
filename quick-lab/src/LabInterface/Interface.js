@@ -76,8 +76,9 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const[title, setTitle]=useState('')
-  const [practicals,setPracticals]=useState([])
+  const [image,setImage]=useState('')
   const [instructions,setInstructions]=useState('')
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -86,6 +87,7 @@ export default function PersistentDrawerLeft() {
   };
   useEffect(()=>{
        fetchPractical()
+      //  console.log(image)
 
        
 }, [])
@@ -94,19 +96,6 @@ const navigate = useNavigate()
 
 const goHome = () => {
   navigate('/home')
-
-
-}
-
-
-const getInstructions=(pra,tit)=>{
-    console.log(pra)
-    pra.map(item => {
-      if(item.title === tit){ 
-        console.log(tit)
-        setInstructions(item.instructions)   
-      }
-    })
 }
 
 const fetchPractical=()=>{
@@ -119,9 +108,22 @@ const fetchPractical=()=>{
       console.log('no title')
      } 
 
-  axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
+  axios.get("https://sheltered-earth-23604.herokuapp.com/api/instructions/")
 .then(res=>{
-  getInstructions(res.data, title)
+
+    // console.log(res.data[0].practical)
+    console.log(res.data)
+  const filteredInst=res.data.filter(item=>{
+  const practicalll= item.practical.find(pra=> pra.title==title)
+  // console.log(practicalll)
+  if(practicalll){
+    return item
+  }
+    }) 
+  // console.log(filteredInst)
+  setInstructions(filteredInst) 
+  // console.log(res.data.)
+  // getInstructions(res.data, title)
 
  })
  .catch(error=>{
@@ -183,9 +185,11 @@ const fetchPractical=()=>{
         <List className='list'>
             <Typography className='instructions'>Instructions</Typography>
             <Typography paragraph>
-               
+                
         </Typography>
-          <p>{instructions !=='' ? instructions :<span>Instructions Loading</span>}</p>
+          <div>{instructions.length !==0 ? instructions.map(item=>(
+            <p className='inst' onClick={(e)=>setImage(item.image)} > Step {item.id}: {item.title}</p>
+          )) :<span>Instructions Loading</span>}</div>
          
         </List>
         <Divider />
@@ -194,7 +198,8 @@ const fetchPractical=()=>{
         </List>
       </Drawer>
       <Main open={open} className='main'>
-        <DrawerHeader />
+        <img src={`https://sheltered-earth-23604.herokuapp.com${image}`}/>
+        {/* <DrawerHeader /> */}
       </Main>
       <Drawer className='drawer'
         sx={{
