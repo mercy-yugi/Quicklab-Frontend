@@ -15,6 +15,7 @@ import Footer from '../Footer';
 
 
 const Practicals=()=>{
+  const apiLink="https://sheltered-earth-23604.herokuapp.com"
   const navigate = useNavigate()
     const options = [
         { value: 'FORM 4', label: 'Form 4' },
@@ -122,7 +123,7 @@ else{
     // }
     // }, [title])
     const fetchPractical=()=>{
-         axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
+         axios.get(`${apiLink}/api/practicals/`)
     .then(res=>{
         setPracticals(res.data)  
        console.log(res.data)      
@@ -188,7 +189,7 @@ else{
         {len>=1 && <div className='all_practicals'>
           {filteredResults.slice(0,4).map(item=>(
             <div className='one' key={item.title} onClick={value=>navigatetoInterface({value:item.title}.value)}>
-            <img className='picture' src={cell} alt='practical'/>
+            <img className='picture' src={`${apiLink}${item.image}`} alt='practical'/>
             <p className='practical_title'><b>{item.title}</b></p>
             <p className="practical_description" >{item.description}</p>
         </div>
@@ -198,7 +199,7 @@ else{
            
           {practicals.slice(0,4).map(item=>(
             <div className='one' key={item.title} onClick={value=>navigatetoInterface({value:item.title}.value)}>
-            <img className='picture' src={cell} alt='practical'/>
+            <img className='picture' src={`${apiLink}${item.image}`} alt='practical' />
             <p className='practical_title'><b>{item.title}</b></p>
             <p className="practical_description" >{item.description}</p>
         </div>

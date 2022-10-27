@@ -18,8 +18,12 @@ import '../LabInterface/interface.css'
 import DigitalTimer from '../LabInterface/timer.js';
 import Foooter from '../Footer';
 import axios from "axios";
+import Konva from 'konva';
+// import { Stage, Layer, Rect, Circle } from 'react-konva';
 import '../dashboard/dashboard.css';
 import { Link, useNavigate} from 'react-router-dom';
+import { FaFlask} from 'react-icons/fa'
+import { FaFilter, FaMicroscope  } from 'react-icons/fa';
 
 
 const drawerWidth = 240;
@@ -42,6 +46,8 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
     }),
   }),
 );
+
+
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
@@ -189,13 +195,15 @@ const fetchPractical=()=>{
       <Main open={open} className='main'>
         <DrawerHeader />
         <Typography paragraph>
-          
+     
         </Typography>
         <Typography paragraph>
         <div className='interface'>
         {/* <DigitalTimer/> */}
+        
           </div>  
         </Typography>
+        
       </Main>
       <Drawer className='drawer'
         sx={{
@@ -220,7 +228,9 @@ const fetchPractical=()=>{
             <Typography className='instructions'>Lab Equipment</Typography>
             <Typography paragraph>
         </Typography>
-         
+
+        <FaFlask className='flask'/>  <FaFilter className='filter'/> <FaMicroscope className='micrscope'/> <br/>
+        {/* <FontAwesomeIcon icon="fa-solid fa-flask-round-potion" /> */}
         </List>
         <Divider />
         <List className='list '>

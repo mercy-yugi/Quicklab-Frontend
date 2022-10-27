@@ -5,10 +5,13 @@ import LoginForm from './Login/login';
 import Dashboard from './dashboard/Dashboard';
 import Practicals from './dashboard/Practicals';
 import Interface from './LabInterface/Interface';
+import Test from './Test';
 
 function App() {
   return (
     <div>
+
+      {/* <Test/> */}
   <Router>
   <Routes>
         <Route path="/" element={<SignupForm/>}/>

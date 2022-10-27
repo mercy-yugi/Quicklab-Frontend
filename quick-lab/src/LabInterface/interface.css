@@ -55,7 +55,7 @@
 }
 .timer{
     float: right;
-    margin-left:190%;
+    margin-left:150%;
     color: black;
     margin-top:-2%;
 }
@@ -73,4 +73,17 @@
 .main{
     height: 85vh;
     background-color: rgb(165, 229, 238);
+}
+
+.flask{
+    font-size:30px;
+    margin-left:10%;
+}
+.filter{
+    font-size:30px;
+    margin-left:16%;
+}
+.micrscope{
+    font-size:30px;
+    margin-left:16%;
 }
