@@ -118,6 +118,7 @@ const fetchPractical=()=>{
      else{
       console.log('no title')
      } 
+
   axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
 .then(res=>{
   getInstructions(res.data, title)
@@ -138,7 +139,7 @@ const fetchPractical=()=>{
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none' }) }}
+            sx={{ mr: 0, ...(open && { display: 'none' }) }}
           >
             <MenuIcon />
           </IconButton>
@@ -194,16 +195,6 @@ const fetchPractical=()=>{
       </Drawer>
       <Main open={open} className='main'>
         <DrawerHeader />
-        <Typography paragraph>
-     
-        </Typography>
-        <Typography paragraph>
-        <div className='interface'>
-        {/* <DigitalTimer/> */}
-        
-          </div>  
-        </Typography>
-        
       </Main>
       <Drawer className='drawer'
         sx={{
