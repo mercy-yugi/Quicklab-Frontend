@@ -189,7 +189,7 @@ else{
         {len>=1 && <div className='all_practicals'>
           {filteredResults.slice(0,4).map(item=>(
             <div className='one' key={item.title} onClick={value=>navigatetoInterface({value:item.title}.value)}>
-            <img className='picture' src={`${apiLink}${item.image}`} alt='practical'/>
+            <img className='picture' src={`https://res.cloudinary.com/duuajd4sr/${item.image}`} alt='practical'/>
             <p className='practical_title'><b>{item.title}</b></p>
             <p className="practical_description" >{item.description}</p>
         </div>
@@ -199,7 +199,7 @@ else{
            
           {practicals.slice(0,4).map(item=>(
             <div className='one' key={item.title} onClick={value=>navigatetoInterface({value:item.title}.value)}>
-            <img className='picture' src={`${apiLink}${item.image}`} alt='practical' />
+            <img className='picture' src={`https://res.cloudinary.com/duuajd4sr/${item.image}`} alt='practical' />
             <p className='practical_title'><b>{item.title}</b></p>
             <p className="practical_description" >{item.description}</p>
         </div>
@@ -213,13 +213,13 @@ else{
         <div className='all_practicals'>
             <div className='one'>
                 <img className='picture' src={flame} alt='practical'width="350px" height="120"/>
-                <p className='practical_title'><b>Titration</b></p>
+                <p className='practical_title'><b>Solubility</b></p>
                 <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
 
             <div className='one'>
                 <img className='picture' src={solu} alt='practical'width="300px" height="120"/>
-                <p className='practical_title'><b>Titration</b></p>
+                <p className='practical_title'><b>Acid-Base-Test</b></p>
                 <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
 
@@ -231,7 +231,7 @@ else{
 
             <div className='one'>
                 <img className='picture' src={pend} alt='practical'width="300px" height="120"/>
-                <p className='practical_title'><b>Titration</b></p>
+                <p className='practical_title'><b>Enzymes Reaction</b></p>
                 <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
         </div>

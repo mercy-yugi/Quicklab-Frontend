@@ -198,7 +198,9 @@ const fetchPractical=()=>{
         </List>
       </Drawer>
       <Main open={open} className='main'>
-        <img src={`https://sheltered-earth-23604.herokuapp.com${image}`}/>
+        <div className='pic-step'>
+        <img src={`https://sheltered-earth-23604.herokuapp.com${image}`} alt='practical'/>
+        </div>
         {/* <DrawerHeader /> */}
       </Main>
       <Drawer className='drawer'
