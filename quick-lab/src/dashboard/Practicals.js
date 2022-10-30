@@ -211,35 +211,18 @@ else{
         <h3 className='about_practical' >The most tried out Practicals this Month</h3>
         <div className='see_all'> <span>See all</span> <FaLongArrowAltRight className='arrow' /></div>
         <div className='all_practicals'>
-            <div className='one'>
-                <img className='picture' src={flame} alt='practical'width="350px" height="120"/>
-                <p className='practical_title'><b>Solubility</b></p>
-                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-            </div>
-
-            <div className='one'>
-                <img className='picture' src={solu} alt='practical'width="300px" height="120"/>
-                <p className='practical_title'><b>Acid-Base-Test</b></p>
-                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-            </div>
-
-            <div className='one'>
-                <img className='picture' src={themo} alt='practical'width="300px" height="120"/>
-                <p className='practical_title'><b>Titration</b></p>
-                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-            </div>
-
-            <div className='one'>
-                <img className='picture' src={pend} alt='practical'width="300px" height="120"/>
-                <p className='practical_title'><b>Enzymes Reaction</b></p>
-                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-            </div>
+           
+          {practicals.slice(4,8).map(item=>(
+            <div className='one' key={item.title} onClick={value=>navigatetoInterface({value:item.title}.value)}>
+            <img className='picture' src={`https://res.cloudinary.com/duuajd4sr/${item.image}`} alt='practical' />
+            <p className='practical_title'><b>{item.title}</b></p>
+            <p className="practical_description" >{item.description}</p>
         </div>
+          ))}
+          </div>    
       <Footer/>
         
       </div>
     )}
 
-// }
 export default Practicals
-// export function searchItems(searchvalue){}

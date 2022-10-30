@@ -29,6 +29,7 @@
     color: whitesmoke;
     border-radius:3px;
     transition: transform 500ms ease;
+    cursor: grab;
 
 }
 .clear{
@@ -40,6 +41,7 @@
     border-style: none;
     color: whitesmoke;
     transition: transform 500ms ease;
+    cursor: grab;
 
 }
 .clear:hover, .record:hover{
