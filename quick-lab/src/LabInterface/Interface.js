@@ -24,7 +24,7 @@ import '../dashboard/dashboard.css';
 import { Link, useNavigate} from 'react-router-dom';
 import { FaFlask} from 'react-icons/fa'
 import { FaFilter, FaMicroscope  } from 'react-icons/fa';
-import Popper from '../Popup.js'
+import Popper from '../popup/Popup.js'
 import Button from '@mui/material/Button';
 
 
