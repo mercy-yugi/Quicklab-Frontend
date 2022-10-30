@@ -198,33 +198,6 @@ else{
         
           ))} 
           </div> || practicals.length>=1 && <div className='all_practicals'>
-<<<<<<< HEAD
-
-            
-             <div className='one' value={practicals[0].title} onClick={e=> {navigatetoInterface(e.target.value)}}>
-             <img className='picture' src={pend} alt='practical'width="300px" height="120"/>
-             <p className='practical_title'><b>{practicals[0].title}</b></p>
-             <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-         </div>
-         <div className='one' onClick={value=>navigatetoInterface({value:practicals[1].title}.value)}>
-             <img className='picture' src={elect} alt='practical'width="350px" height="120"/>
-             <p className='practical_title'><b>{practicals[1].title}</b></p>
-             <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-         </div>
-         <div className='one'>
-             <img className='picture' src={flame} alt='practical'width="400px" height="120"/>
-             <p className='practical_title'><b>{practicals[2].title}</b></p>
-             <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-         </div>
-         <div className='one'>
-             <img className='picture' src={cell} alt='practical'width="300px" height="120"/>
-             <p className='practical_title'><b>{practicals[3].title}</b></p>
-             <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-         </div>
-            
-
-          </div> }     
-=======
            
           {practicals.slice(0,4).map(item=>(
             <div className='one' key={item.title} onClick={value=>navigatetoInterface({value:item.title}.value)}>
@@ -234,72 +207,16 @@ else{
         </div>
           ))}
           </div>}     
->>>>>>> 57caceba699765d907c19f2b5f9c09a349bd1748
-        
-
-                  {/* <div className='all_practicals'>
-                    <div className='one'>
-                <img className='picture' src={image} alt='practical'/>
-                <p className='practical_title'><b>{len>=1 && filteredResults[0].title || practicals.length!==0 && practicals[0].title  }</b></p>
-                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-            </div>
-
-            <div className='one' onClick={navigatetoInterface}>
-                <img className='picture' src={image} alt='practical'/>
-                <p className='practical_title'><b>{len>=2 && filteredResults[1].title || practicals.length!==0 && practicals[1].title  }</b></p>
-                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-            </div>
-
-            <div className='one'>
-                <img className='picture' src={image} alt='practical'/>
-                <p className='practical_title'><b>{len>=3 && filteredResults[2].title || practicals.length!==0 && practicals[2].title  }</b></p>
-                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-            </div>
-
-            <div className='one'>
-                <img className='picture' src={image} alt='practical'/>
-                <p className='practical_title'><b>{len>=4 && filteredResults[3].title || practicals.length!==0 && practicals[3].title  }</b></p>
-                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-            </div>
-        </div> */}
-
-        
-            
+                 
         <h3 className='about_practical' >The most tried out Practicals this Month</h3>
         <div className='see_all'> <span>See all</span> <FaLongArrowAltRight className='arrow' /></div>
         <div className='all_practicals'>
-<<<<<<< HEAD
-            <div className='one'>
-                <img className='picture' src={flame} alt='practical'width="800px" height="120"/>
-                <p className='practical_title'><b>Titration</b></p>
-                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-            </div>
-
-            <div className='one'>
-                <img className='picture' src={solu} alt='practical'width="800px" height="120"/>
-                <p className='practical_title'><b>Titration</b></p>
-                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-            </div>
-
-            <div className='one'>
-                <img className='picture' src={themo} alt='practical'width="800px" height="120"/>
-                <p className='practical_title'><b>Titration</b></p>
-                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-            </div>
-
-            <div className='one'>
-                <img className='picture' src={pend} alt='practical'width="800px" height="120"/>
-                <p className='practical_title'><b>Titration</b></p>
-                <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
-            </div>
-=======
            
           {practicals.slice(4,8).map(item=>(
             <div className='one' key={item.title} onClick={value=>navigatetoInterface({value:item.title}.value)}>
             <img className='picture' src={`https://res.cloudinary.com/duuajd4sr/${item.image}`} alt='practical' />
             <p className='practical_title'><b>{item.title}</b></p>
             <p className="practical_description" >{item.description}</p>
->>>>>>> 57caceba699765d907c19f2b5f9c09a349bd1748
         </div>
           ))}
           </div>    

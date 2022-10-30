@@ -24,6 +24,9 @@ import '../dashboard/dashboard.css';
 import { Link, useNavigate} from 'react-router-dom';
 import { FaFlask} from 'react-icons/fa'
 import { FaFilter, FaMicroscope  } from 'react-icons/fa';
+import Popper from '../Popup.js'
+import Button from '@mui/material/Button';
+
 
 
 
@@ -133,16 +136,6 @@ const fetchPractical=()=>{
  })
 }
 
-const [openD, setOpenD] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpenD(true);
-  };
-
-  const handleClose = () => {
-    setOpenD(false);
-  };
-
   return (
     <Box sx={{ display: '' }}>
       <CssBaseline />
@@ -212,7 +205,7 @@ const [openD, setOpenD] = React.useState(false);
       </Drawer>
       <Main open={open} className='main'>
         <div className='pic-step'>
-        <img src={`https://sheltered-earth-23604.herokuapp.com${image}`} alt='practical'/>
+        <img src={`https://res.cloudinary.com/duuajd4sr/${image}`} alt='practical'/>
         </div>
         {/* <DrawerHeader /> */}
       </Main>
@@ -249,9 +242,12 @@ const [openD, setOpenD] = React.useState(false);
         </List>
       </Drawer>
       <div className='buttons'>
-        <button className='clear'>Clear</button>
+        <button className='clear'>CLEAR</button>
+     
+        <div className='record'><Popper/></div>
+        
+
       </div>
-  
 
       <Foooter/>
     </Box>
