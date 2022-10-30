@@ -1,3 +1,7 @@
+.body{
+    overflow-x: hidden;
+}
+
 .instructions{
     color: rgb(31, 179, 225);
     text-align: center;
@@ -7,10 +11,11 @@
 }
 .appbar{
     background-color:#e8f6fe;
-    color: rgb(31, 179, 225);
+    color: rgb(122, 225, 248);
     font-family: sans-serif;
     font-style:bold;
     /* padding:10px; */
+    
 }
 .listtext{
     background-color: chartreuse;
@@ -24,7 +29,7 @@
     margin-left:5%;
     padding:15px;
     width:20%;
-    background-color:rgb(31, 179, 225) ;
+    background-color:#00A9E5;
     border-style: none;
     color: whitesmoke;
     border-radius:3px;
@@ -36,7 +41,7 @@
     border-radius:3px;
     padding:15px;
     width:20%;
-    background-color:rgb(90, 93, 94) ;
+    background-color:rgb(221, 221, 221) ;
     border-style: none;
     color: whitesmoke;
     transition: transform 500ms ease;
@@ -72,5 +77,69 @@
 }
 .main{
     height: 85vh;
-    background-color: rgb(165, 229, 238);
+    background-color: #D6F0FF;
+}
+
+.Box{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: rgba(6, 6, 6, 0.785);
+    display: grid;
+    
+}
+
+.white{
+    background-color: white;
+    padding: 8px;
+}
+
+.observation {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    display: grid;
+    margin-left: 18%;
+    margin-top: 9%;
+    grid-template-columns: 30%;
+    grid-template-rows: auto;
+
+    /* align-content: center;
+    justify-content: center; */
+    background-color: #00A9E5;
+    border-radius: 2%;
+}
+
+.observation input :focus{
+    margin-top: 4%;
+    text-align: center;
+    margin-left: -30%;
+}
+
+.observation h3{
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    margin-right: -250%;
+    
+}
+
+.observation h4{
+    color: white;
+    font-size: 20px;
+    margin-top: -15%;
+    text-align: center;
+    margin-right: -30%;
+}
+
+.save button{  
+    width: 350px;  
+    padding: 10px; 
+    margin-top:6%;
+    margin-left: 7%;
+    color: white;  
+    background-color: #a3e6ff; 
+    border: solid transparent;  
+    border-radius: 30px;  
+    font-size: 18px;
 }

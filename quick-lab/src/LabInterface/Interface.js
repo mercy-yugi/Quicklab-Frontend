@@ -22,6 +22,8 @@ import '../dashboard/dashboard.css';
 import { Link, useNavigate} from 'react-router-dom';
 
 
+
+
 const drawerWidth = 240;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -66,7 +68,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
 }));
-export default function PersistentDrawerLeft() {
+export default function AlertDialog() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const[title, setTitle]=useState('')
@@ -122,6 +124,17 @@ const fetchPractical=()=>{
      console.log(error)
  })
 }
+
+const [openD, setOpenD] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpenD(true);
+  };
+
+  const handleClose = () => {
+    setOpenD(false);
+  };
+
   return (
     <Box sx={{ display: '' }}>
       <CssBaseline />
@@ -221,10 +234,11 @@ const fetchPractical=()=>{
         
         </List>
       </Drawer>
-    <div className='buttons'>
-    <button className='clear'>Clear</button>
-          <button className='record'>Record Observation</button>
-    </div>
+      <div className='buttons'>
+        <button className='clear'>Clear</button>
+      </div>
+  
+
       <Foooter/>
     </Box>
  
