@@ -194,7 +194,7 @@ const fetchPractical=()=>{
                 
         </Typography>
           <div>{instructions.length !==0 ? instructions.map(item=>(
-            <p className='inst' onClick={(e)=>setImage(item.image)} > Step {item.id}: {item.title}</p>
+            <p className='inst' onClick={(e)=>setImage(item.image)} > Step {instructions.indexOf(item)+1}: {item.title}</p>
           )) :<span>Instructions Loading</span>}</div>
          
         </List>
@@ -204,9 +204,12 @@ const fetchPractical=()=>{
         </List>
       </Drawer>
       <Main open={open} className='main'>
-        <div className='pic-step'>
+      {image.length!==0 && <div className='pic-step'>
         <img src={`https://res.cloudinary.com/duuajd4sr/${image}`} alt='practical'/>
-        </div>
+        </div>  
+        || <p className='start'>Start your Experiment by clicking on the first step of instructions in the menu</p>}
+
+        
         {/* <DrawerHeader /> */}
       </Main>
       <Drawer className='drawer'
