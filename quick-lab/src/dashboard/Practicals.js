@@ -15,6 +15,7 @@ import Footer from '../Footer';
 
 
 const Practicals=()=>{
+  const apiLink="https://sheltered-earth-23604.herokuapp.com"
   const navigate = useNavigate()
     const options = [
         { value: 'FORM 4', label: 'Form 4' },
@@ -122,7 +123,7 @@ else{
     // }
     // }, [title])
     const fetchPractical=()=>{
-         axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
+         axios.get(`${apiLink}/api/practicals/`)
     .then(res=>{
         setPracticals(res.data)  
        console.log(res.data)      
@@ -190,13 +191,14 @@ else{
         {len>=1 && <div className='all_practicals'>
           {filteredResults.slice(0,4).map(item=>(
             <div className='one' key={item.title} onClick={value=>navigatetoInterface({value:item.title}.value)}>
-            <img className='picture' src={cell} alt='practical'/>
+            <img className='picture' src={`https://res.cloudinary.com/duuajd4sr/${item.image}`} alt='practical'/>
             <p className='practical_title'><b>{item.title}</b></p>
             <p className="practical_description" >{item.description}</p>
         </div>
         
           ))} 
           </div> || practicals.length>=1 && <div className='all_practicals'>
+<<<<<<< HEAD
 
             
              <div className='one' value={practicals[0].title} onClick={e=> {navigatetoInterface(e.target.value)}}>
@@ -222,6 +224,17 @@ else{
             
 
           </div> }     
+=======
+           
+          {practicals.slice(0,4).map(item=>(
+            <div className='one' key={item.title} onClick={value=>navigatetoInterface({value:item.title}.value)}>
+            <img className='picture' src={`https://res.cloudinary.com/duuajd4sr/${item.image}`} alt='practical' />
+            <p className='practical_title'><b>{item.title}</b></p>
+            <p className="practical_description" >{item.description}</p>
+        </div>
+          ))}
+          </div>}     
+>>>>>>> 57caceba699765d907c19f2b5f9c09a349bd1748
         
 
                   {/* <div className='all_practicals'>
@@ -255,6 +268,7 @@ else{
         <h3 className='about_practical' >The most tried out Practicals this Month</h3>
         <div className='see_all'> <span>See all</span> <FaLongArrowAltRight className='arrow' /></div>
         <div className='all_practicals'>
+<<<<<<< HEAD
             <div className='one'>
                 <img className='picture' src={flame} alt='practical'width="800px" height="120"/>
                 <p className='practical_title'><b>Titration</b></p>
@@ -278,12 +292,20 @@ else{
                 <p className='practical_title'><b>Titration</b></p>
                 <p className="practical_description" >Base-acid titration intended to hep students understand  the reactions  </p>
             </div>
+=======
+           
+          {practicals.slice(4,8).map(item=>(
+            <div className='one' key={item.title} onClick={value=>navigatetoInterface({value:item.title}.value)}>
+            <img className='picture' src={`https://res.cloudinary.com/duuajd4sr/${item.image}`} alt='practical' />
+            <p className='practical_title'><b>{item.title}</b></p>
+            <p className="practical_description" >{item.description}</p>
+>>>>>>> 57caceba699765d907c19f2b5f9c09a349bd1748
         </div>
+          ))}
+          </div>    
       <Footer/>
         
       </div>
     )}
 
-// }
 export default Practicals
-// export function searchItems(searchvalue){}

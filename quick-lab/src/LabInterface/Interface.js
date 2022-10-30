@@ -18,8 +18,12 @@ import '../LabInterface/interface.css'
 import DigitalTimer from '../LabInterface/timer.js';
 import Foooter from '../Footer';
 import axios from "axios";
+import Konva from 'konva';
+// import { Stage, Layer, Rect, Circle } from 'react-konva';
 import '../dashboard/dashboard.css';
 import { Link, useNavigate} from 'react-router-dom';
+import { FaFlask} from 'react-icons/fa'
+import { FaFilter, FaMicroscope  } from 'react-icons/fa';
 
 
 
@@ -44,6 +48,8 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
     }),
   }),
 );
+
+
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
@@ -72,8 +78,9 @@ export default function AlertDialog() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const[title, setTitle]=useState('')
-  const [practicals,setPracticals]=useState([])
+  const [image,setImage]=useState('')
   const [instructions,setInstructions]=useState('')
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -82,6 +89,7 @@ export default function AlertDialog() {
   };
   useEffect(()=>{
        fetchPractical()
+      //  console.log(image)
 
        
 }, [])
@@ -90,19 +98,6 @@ const navigate = useNavigate()
 
 const goHome = () => {
   navigate('/home')
-
-
-}
-
-
-const getInstructions=(pra,tit)=>{
-    console.log(pra)
-    pra.map(item => {
-      if(item.title === tit){ 
-        console.log(tit)
-        setInstructions(item.instructions)   
-      }
-    })
 }
 
 const fetchPractical=()=>{
@@ -115,9 +110,22 @@ const fetchPractical=()=>{
       console.log('no title')
      } 
 
-  axios.get("https://sheltered-earth-23604.herokuapp.com/api/practicals/")
+  axios.get("https://sheltered-earth-23604.herokuapp.com/api/instructions/")
 .then(res=>{
-  getInstructions(res.data, title)
+
+    // console.log(res.data[0].practical)
+    console.log(res.data)
+  const filteredInst=res.data.filter(item=>{
+  const practicalll= item.practical.find(pra=> pra.title==title)
+  // console.log(practicalll)
+  if(practicalll){
+    return item
+  }
+    }) 
+  // console.log(filteredInst)
+  setInstructions(filteredInst) 
+  // console.log(res.data.)
+  // getInstructions(res.data, title)
 
  })
  .catch(error=>{
@@ -190,9 +198,11 @@ const [openD, setOpenD] = React.useState(false);
         <List className='list'>
             <Typography className='instructions'>Instructions</Typography>
             <Typography paragraph>
-               
+                
         </Typography>
-          <p>{instructions !=='' ? instructions :<span>Instructions Loading</span>}</p>
+          <div>{instructions.length !==0 ? instructions.map(item=>(
+            <p className='inst' onClick={(e)=>setImage(item.image)} > Step {item.id}: {item.title}</p>
+          )) :<span>Instructions Loading</span>}</div>
          
         </List>
         <Divider />
@@ -201,8 +211,10 @@ const [openD, setOpenD] = React.useState(false);
         </List>
       </Drawer>
       <Main open={open} className='main'>
-        <DrawerHeader />
-
+        <div className='pic-step'>
+        <img src={`https://sheltered-earth-23604.herokuapp.com${image}`} alt='practical'/>
+        </div>
+        {/* <DrawerHeader /> */}
       </Main>
       <Drawer className='drawer'
         sx={{
@@ -227,7 +239,9 @@ const [openD, setOpenD] = React.useState(false);
             <Typography className='instructions'>Lab Equipment</Typography>
             <Typography paragraph>
         </Typography>
-         
+
+        <FaFlask className='flask'/>  <FaFilter className='filter'/> <FaMicroscope className='micrscope'/> <br/>
+        {/* <FontAwesomeIcon icon="fa-solid fa-flask-round-potion" /> */}
         </List>
         <Divider />
         <List className='list '>
