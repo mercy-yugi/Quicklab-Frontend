@@ -1,0 +1,32 @@
+.logo{
+    margin-left: 7%;
+
+}
+
+.landingpg{
+    margin-left: 10%;
+    margin-top: 6%;
+}
+
+
+.landingpg h1{
+    font-size: 70px;
+    color: #00A9E5;
+    margin-top: 3%;
+}
+
+.landingpg p{
+    font-size: 25px;
+    margin-top: 2%;
+}
+
+.getstartedbtn button{   
+    width: 300px;  
+    padding: 9px; 
+    color: white;  
+    background-color: #00A9E5; 
+    border: solid transparent;  
+    border-radius: 30px;  
+    font-size: 18px;
+    margin-top: 4%;
+   }
