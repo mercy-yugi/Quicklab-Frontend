@@ -8,7 +8,7 @@ import { AiFillLayout} from "react-icons/ai";
 import { BsPersonFill } from "react-icons/bs";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import * as yup from 'yup';
+import * as Yup from 'yup';
 import axios from "axios";
 import Select from 'react-select'
 import {toast} from 'react-toastify';
@@ -52,13 +52,13 @@ function SignupForm() {
         }
 
 
-    const formSchema = yup.object().shape({
-        first_name: yup.string().required(),
-        last_name: yup.string().required(),
-        username: yup.string().required(),
+    const formSchema = Yup.object().shape({
+        first_name: Yup.string().required(),
+        last_name: Yup.string().required(),
+        username: Yup.string().required(),
         // level: yup.string().required(),
-        password: yup.string().min(3).max(8).required(),
-        // confirmPassword: yup.string().required().oneOf([yup.ref('password'), null])
+        password: Yup.string().min(4).max(8).required(),
+        confirmPassword: Yup.string().required('Confirm password is required !').min(4).max(8).oneOf([Yup.ref('password'), null], 'Passwords must match !')
 
       })
 
@@ -119,7 +119,7 @@ const refreshPage = () => {
                         {...register("first_name")}
                         onChange={handleChange}               
                          />
-                {errors.firstName?.message}
+                <i className='errors' > {errors.firstName?.message}</i>
                 </div>  
             </div>
 
@@ -132,7 +132,7 @@ const refreshPage = () => {
                        {...register("last_name")}
                        onChange={handleChange}               
                        />
-                <i>{errors.lastName?.message}</i>
+                <i className='errors' >{errors.lastName?.message}</i>
                 </div>
             </div>
 
@@ -145,7 +145,7 @@ const refreshPage = () => {
                        {...register("username")}
                        onChange={handleChange}               
                        />
-                {errors.UserName?.message}
+                <i className='errors' > {errors.UserName?.message}</i>
                 </div>
             </div>
             <div className="level-1">
@@ -159,7 +159,6 @@ const refreshPage = () => {
                 onChange={ level=>handleChange({target:{value:level.label, name:'level'}})}
 
             />
-                {errors.level?.message}
                 </div>
             </div>
 
@@ -167,12 +166,12 @@ const refreshPage = () => {
              <div className='icons'>
              <FaLock />
             </div>  
-            <div className="password-1"> 
-               <input type="password" name="password"  required  placeholder=' Password'
+            <div className="password"> 
+               <input className='pass' type="password" name="password"  required  placeholder=' Password'
                        {...register("password")}
                        onChange={handleChange}               
-                       />
-                 <i>{errors.password?.message}</i>
+                       /> <br/>
+                 <i className='errors' >{errors.password?.message}</i>
                 </div>
             </div>
 
@@ -182,11 +181,12 @@ const refreshPage = () => {
             </div> 
             < div className="confirmpassword">
                 <input  type="password" name="confirm password" required placeholder='Confirm password'
-                      {...register("confirmpassword")}
+                      {...register("confirmPassword")}
               
-                      />
+                      /><br/>
+                       <i className='errors' > {errors.confirmPassword?.message}</i>
                 </div>
-                {errors.confirmPassword}
+              
             </div>
              
 

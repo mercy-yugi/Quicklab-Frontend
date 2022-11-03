@@ -29,23 +29,26 @@ const Practicals=()=>{
         { value: 'Biology', label: 'Biology' }
     
       ]
-      const topics = [
-        { value: 'Titration', label: 'Titration' },
-        { value: 'ThemoChemistry', label: 'ThemoChemistry' },
-        { value: 'Flame Test', label: 'Flame Test' },
-        { value: 'Solubility', label: 'Solubility' },
-        { value: 'Pendulumbob', label: 'Pendulumbob' },
-        { value: 'Thermal Expansion', label: 'Thermal Expansion' },
-        { value: 'Heat Transfer', label: 'Heat Transfer' },
-        { value: 'Electrostatics', label: 'Electrostatics' },
-        { value: 'Dichotomous Key', label: 'Dichotomous Key' },
-        { value: 'Cell Mutation', label: 'Cell Mutation' },
-        { value: 'Transpiration', label: 'Transpiration' },
-        { value: 'Respiration', label: 'Respiration' },
+      // const topics = [
+      //   { value: 'Titration', label: 'Titration' },
+      //   { value: 'ThemoChemistry', label: 'ThemoChemistry' },
+      //   { value: 'Flame Test', label: 'Flame Test' },
+      //   { value: 'Solubility', label: 'Solubility' },
+      //   { value: 'Pendulumbob', label: 'Pendulumbob' },
+      //   { value: 'Thermal Expansion', label: 'Thermal Expansion' },
+      //   { value: 'Heat Transfer', label: 'Heat Transfer' },
+      //   { value: 'Electrostatics', label: 'Electrostatics' },
+      //   { value: 'Dichotomous Key', label: 'Dichotomous Key' },
+      //   { value: 'Cell Mutation', label: 'Cell Mutation' },
+      //   { value: 'Transpiration', label: 'Transpiration' },
+      //   { value: 'Respiration', label: 'Respiration' },
     
-      ]
-    const[
-      title, setTitle]=useState('')
+      // ]
+    const [topics,setTopics]=useState([])
+    const[level,setLevel]=useState('')
+    const[subject,setSubject]=useState('')
+    const[topic,setTopic]=useState('')
+    const[title, setTitle]=useState('')
     const [practicals,setPracticals]=useState([])
     const [searchInput, setSearchInput] = useState('');
   const [filteredResults, setFilteredResults] = useState(practicals);
@@ -54,43 +57,61 @@ const Practicals=()=>{
     subject:"",
     topic:""        
 })
-const handleDetails = e =>{
-    const {name,value} = e.target
-    setDetails({
-    ...details,//spread operator 
-    [name]:value
-    })
-    console.log(details)
-    if (searchInput !== '') {
-      // console.log('Woww')
-    const filteredData = practicals.filter((item) => {
-      // if(item.title==topic && item.subject==subject){
-        
-      // }
-        return Object.values(item.title).join('').toLowerCase().includes(searchInput.toLowerCase())
-    })
-    console.log('filtered data are ',filteredData)
-    setFilteredResults(filteredData)
+
+const handleDetails = ()=>{
+    // const {name,value} = e.target
+    // setDetails({
+    // ...details,//spread operator 
+    // [name]:value
+    // })
+    // console.log(details)
+if(level!==''){
+  const filteredData = practicals.filter(item => item.level==level )
+setFilteredResults(filteredData)
 }
+else if(subject!==''){
+  const filteredData = practicals.filter(item => item.subject==subject )
+setFilteredResults(filteredData)
+}
+else if(topic!==''){
+  const filteredData = practicals.filter(item =>Object.values(item.title).join('').toLowerCase().includes(topic.toLowerCase()))
+setFilteredResults(filteredData)
+}
+else if(subject!=='' && level!==''){
+  const filteredData = practicals.filter(item => item.level==level && item.subject==subject )
+  setFilteredResults(filteredData)
+}
+else if(subject!=='' && level!=='' && details.topic!==''){
+  const filteredData = practicals.filter(item => item.level==level && item.subject==subject && 
+    Object.values(item.title).join('').toLowerCase().includes(topic.toLowerCase()))
+  setFilteredResults(filteredData)
+}
+
+
 else{
   console.log('ahreee')
     setFilteredResults(practicals)
    
-}
-    }
+}}
+
     useEffect(()=>{
         // e.preventDefault()
         fetchPractical()
-        console.log(title)
+        handleDetails()
         localStorage.setItem('title', JSON.stringify(title));
         if(title!==''){
           navigate('/canvas')   
     }
-    // else{
-    //   console.log('You have not selected a practical')
-    // }
-       
     },[title])
+    useEffect(()=>{
+      console.log('level','subject','topic')
+    },[])
+
+    const getTopics=(practicals)=>{
+      practicals.map(practical=>(
+        topics.push({value:practical.title, label:practical.title})
+       ))
+    }
   
     const searchItems = (searchvalue) => {
       console.log('filtered data are ',filteredResults)
@@ -126,6 +147,7 @@ else{
          axios.get(`${apiLink}/api/practicals/`)
     .then(res=>{
         setPracticals(res.data)  
+        getTopics(res.data)
        console.log(res.data)      
         })
         .catch(error=>{
@@ -164,21 +186,29 @@ else{
           <BsPersonCircle className='profile'/>
           </div>
           </div>
+
+
+          {/* <Select className='dropdown' name="level" placeholder="Level" options={options}  
+                {...register("level")}
+                onChange={ level=>handleChange({target:{value:level.label, name:'level'}})}
+
+            /> */}
+
       
         <div className='options'>
           <div className='level'>
           <Select placeholder="Level" options={options} 
-          onChange={ level=>handleDetails({target:{value:level.label, name:'level'}})}
+          onChange={ level=>setLevel({target:{value:level.label}})}
           />
           </div>
           <div className='subject'>
           <Select placeholder="Subject" options={subjects}
-          onChange={ subject=>handleDetails({target:{value:subject.label, name:'subject'}})}
+          onChange={ e=>setSubject(e.target.value.value)}
           />
           </div>
           <div className='topics'>
           <Select placeholder="Topics" options={topics}
-          onChange={ topic=>handleDetails({target:{value:topic.label, name:'topic'}})}
+          onChange={ e=>setTopic(e.target.value.value)}
           />
           </div>
         
