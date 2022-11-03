@@ -12,7 +12,8 @@ function App() {
     <div>
   <Router>
   <Routes>
-        <Route path="/" element={<SignupForm/>}/>
+        <Route path="/" element={<Landingpage/>}/>
+        <Route path="/signup" element={<SignupForm/>}/>
         <Route path="/login" element={<LoginForm/>}/>
         <Route path="/home" element={<Dashboard/>}/>
         <Route path="/canvas" element={<Interface/>}/>     

@@ -115,7 +115,7 @@ const onSubmitHandler = (e) => {
                 <button type='submit' onClick={submitting} >Login</button>
             </div>
             <div class="signup">
-                <p>Don't have an account? <span><Link style={{ color: '#00A9E5', textDecoration: 'inherit'}} to={'/'}>SignUp</Link></span></p>
+                <p>Don't have an account? <span><Link style={{ color: '#00A9E5', textDecoration: 'inherit'}} to={'/signup'}>SignUp</Link></span></p>
             </div>
             </div>
         </div>

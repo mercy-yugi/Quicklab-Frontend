@@ -173,6 +173,10 @@
      
     margin-left: 22%; 
     margin-top: 5%;
+    
+}
+button{
+    cursor: grab;
 }
 .signupbtn button{   
      width: 350px;  
