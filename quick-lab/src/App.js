@@ -10,20 +10,20 @@ import Landingpage from './LandingPage/landingpage';
 function App() {
   return (
     <div>
-      <Landingpage/>
+      {/* <Landingpage/> */}
 
-      {/* <Test/> */}
-  {/* <Router> */}
-  {/* <Routes>
+       {/* <Test/>  */}
+  <Router>
+  <Routes>
         <Route path="/" element={<SignupForm/>}/>
         <Route path="/login" element={<LoginForm/>}/>
         <Route path="/home" element={<Dashboard/>}/>
         <Route path="/canvas" element={<Interface/>}/>
 
       
-  </Routes>   */}
+  </Routes>   
 
- {/* </Router> */}
+ </Router> 
 
        
     </div>

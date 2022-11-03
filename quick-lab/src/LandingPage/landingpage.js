@@ -9,7 +9,7 @@ const Landingpage = () => {
             <div className="logo">
                 <img src={logo} alt="logo" width={180} />
             </div>
-            <h1>QUICk LAB</h1>
+            <h1>QUICK LAB</h1>
             <p>An interactive virtual laboratory that can <br></br> 
             be accessed at all time by students.</p>
             <div className="getstartedbtn">
