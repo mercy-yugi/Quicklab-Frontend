@@ -100,7 +100,7 @@ const onSubmitHandler = (e) => {
             <div className='icons'>
                 <FaLock/>
                 </div>
-                <div class="password">
+                <div class="pass_word">
                 <input type="password" name="password" required placeholder='Password'
                  {...register("password")}
                  onChange={handleChange} 

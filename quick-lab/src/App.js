@@ -8,21 +8,14 @@ import Interface from './LabInterface/Interface';
 function App() {
   return (
     <div>
-
-      {/* <Test/> */}
   <Router>
   <Routes>
         <Route path="/" element={<SignupForm/>}/>
         <Route path="/login" element={<LoginForm/>}/>
         <Route path="/home" element={<Dashboard/>}/>
-        <Route path="/canvas" element={<Interface/>}/>
-
-      
+        <Route path="/canvas" element={<Interface/>}/>     
   </Routes>  
-
- </Router>
-
-       
+ </Router> 
     </div>
   );
 }
