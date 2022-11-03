@@ -23,14 +23,9 @@ function App() {
         <Route path="/login" element={<LoginForm/>}/>
 >>>>>>> 68eb86b0cd7903c0090138325d9ef2fd6bf5d813
         <Route path="/home" element={<Dashboard/>}/>
-        <Route path="/canvas" element={<Interface/>}/>
-
-      
+        <Route path="/canvas" element={<Interface/>}/>     
   </Routes>  
-
- </Router>
-
-       
+ </Router> 
     </div>
   );
 }
