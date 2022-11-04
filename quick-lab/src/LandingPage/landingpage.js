@@ -1,7 +1,7 @@
 import "../LandingPage/landingpage.css"
 import logo from '../Images/Quicklab_logo.png';
 import { Link, useNavigate} from 'react-router-dom';
-import demo from '../quick.mp4'
+import demo from '../quicklabvideo.mp4'
 
 
 
@@ -33,7 +33,6 @@ const Landingpage = () => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 title="Embedded youtube"
-                
                 </div>
             </div>
 

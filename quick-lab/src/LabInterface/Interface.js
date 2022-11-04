@@ -26,6 +26,7 @@ import { FaFlask} from 'react-icons/fa'
 import { FaFilter, FaMicroscope  } from 'react-icons/fa';
 import Popper from '../popup/Popup.js'
 import Button from '@mui/material/Button';
+import { tools } from '../constants/Index';
 
 
 
@@ -233,11 +234,46 @@ const fetchPractical=()=>{
         <Divider />
         <List className='list'>
             <Typography className='instructions'>Lab Equipment</Typography>
-            <Typography paragraph>
-        </Typography>
 
-        <FaFlask className='flask'/>  <FaFilter className='filter'/> <FaMicroscope className='micrscope'/> <br/>
-        {/* <FontAwesomeIcon icon="fa-solid fa-flask-round-potion" /> */}
+            {/* {tools.map(tool=>( */}
+              <div className='tools'>
+                <div> <img className='tool' src={tools[0]} alt='tool' /> 
+                      <p>BEAKER WITH WATER</p>
+                </div>
+                
+                <div> <img className='tool' src={tools[1]} alt='tool' /> 
+                      <p>PIPETTE</p>
+                </div><br/>
+
+               <div>  <img className='tool' src={tools[2]} alt='tool' /> 
+                     <p>CONICAL FLASK WITH CuSO4</p>
+               </div>
+                
+                <div> <img className='tool' src={tools[3]} alt='tool' /> 
+                      <p>CONICAL FLASK</p>
+                </div><br/>
+
+                <div> <img className='tool' src={tools[4]} alt='tool' /> 
+                      <p>BUNSEN BURNER</p>
+                </div>
+                
+                <div> <img className='tool' src={tools[5]} alt='tool' /> 
+                      <p>LITMUS PAPER</p>
+                </div><br/>
+                
+                <div> <img className='tool' src={tools[6]} alt='tool' /> 
+                      <p>ROUND BOTTOM FLASK</p>
+                </div>
+                
+                <div> <img className='tool' src={tools[7]} alt='tool' /> 
+                      <p>SPATULA</p>
+                </div><br/>
+
+              </div>
+             {/* ))}  */}
+
+        
+
         </List>
         <Divider />
         <List className='list '>

@@ -83,7 +83,7 @@ export default function FormDialog() {
           <DialogContentText id="alert-dialog-description">
           </DialogContentText>
           <h4 style={{color: 'white'}}>Observation</h4>
-          <p id="outlined-basic" style={{backgroundColor: 'white', padding:'4%', width: '100%', borderRadius: '5px'}}>hhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
+          <p id="outlined-basic" style={{backgroundColor: 'white', padding:'4%', width: '100%', borderRadius: '5px'}}>The red litmus paper turn to blue in bases whereas the blue litmus paper turn to red in acids. </p>
         </DialogContent>
         <DialogActions>
           <Button  color='primary' variant="contained" style={{width: '40%', marginRight: 'auto', marginLeft: 'auto'}} onClick={handleSecondClose}>
