@@ -179,8 +179,8 @@ else{
             placeholder="Search practicals"
             name="s" 
             onChange={(e)=>{searchItems(e.target.value)}} 
-
         /> 
+        
         </div>
         <div className='prof'>
           <BsPersonCircle className='profile'/>

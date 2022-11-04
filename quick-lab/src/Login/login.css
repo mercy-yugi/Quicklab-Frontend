@@ -51,6 +51,10 @@
      
     margin-left: 13%; 
     margin-top: 4%;
+    
+}
+button{
+    cursor: grab;
 }
 .loginbtn button{   
      width: 350px;  
