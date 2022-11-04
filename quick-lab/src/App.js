@@ -12,18 +12,9 @@ function App() {
     <div>
   <Router>
   <Routes>
-
-      
-       <Route path="/" element={<SignupForm/>}/>
-       <Route path="/login" element={<LoginForm/>}/>
-
-        <Route path="/" element={<SignupForm/>}/>
-
         <Route path="/" element={<Landingpage/>}/>
         <Route path="/signup" element={<SignupForm/>}/>
->>>>>>> 51d8f6a69fb057ffeabd1641cc4d469ad5d653e7
         <Route path="/login" element={<LoginForm/>}/>
->>>>>>> 68eb86b0cd7903c0090138325d9ef2fd6bf5d813
         <Route path="/home" element={<Dashboard/>}/>
         <Route path="/canvas" element={<Interface/>}/>     
   </Routes>  
