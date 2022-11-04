@@ -190,3 +190,23 @@
     color: rgb(10, 181, 204);
 
 }
+.tools div{
+    /* background-color: #f8fbfc; */
+    
+}
+.tools p{
+    font-size: 10px;
+    text-align: center;
+}
+.tool{
+    background-color: #f8fbfc;
+    width: 100px;
+    border-radius: 10px;
+    height: 120px; 
+    object-fit: contain;
+    margin-left: 25%;
+
+    /* flex: 0 50%; */
+    /* object-fit: fill; */
+
+}
