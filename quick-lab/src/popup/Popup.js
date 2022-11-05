@@ -13,11 +13,10 @@ import {toast} from 'react-toastify';
 
 
 
-export default function FormDialog() {
+export default function FormDialog({observation}) {
   const navigate = useNavigate()
   const [open, setOpen] = React.useState(false);
   const [secondOpen,setSecondOpen]=React.useState(false)
-  const[stillTitle, setStillTitle]=React.useState('')
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -54,8 +53,6 @@ export default function FormDialog() {
           <b>{"Record Observation"}</b>
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-          </DialogContentText>
           <h4 style={{color: 'white'}}>Observation</h4>
           <TextField id="outlined-basic"  multiline rows={3} placeholder='The color turned..'  style={{backgroundColor: 'white', width: '100%', borderRadius: '5px'}}/>
           <h4 style={{color: 'white'}}>Explanation</h4>
@@ -80,10 +77,8 @@ export default function FormDialog() {
           <b>{"Expected Observation"}</b>
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-          </DialogContentText>
           <h4 style={{color: 'white'}}>Observation</h4>
-          <p id="outlined-basic" style={{backgroundColor: 'white', padding:'4%', width: '100%', borderRadius: '5px'}}>The red litmus paper turn to blue in bases whereas the blue litmus paper turn to red in acids. </p>
+          <p id="outlined-basic" style={{backgroundColor: 'white', padding:'4%', width: '100%', borderRadius: '5px'}}>{observation} </p>
         </DialogContent>
         <DialogActions>
           <Button  color='primary' variant="contained" style={{width: '40%', marginRight: 'auto', marginLeft: 'auto'}} onClick={handleSecondClose}>
