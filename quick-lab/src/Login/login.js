@@ -54,7 +54,7 @@ const onSubmitHandler = (e) => {
             console.log(res.data)
                     reset();
                     notify()
-                    navigate("/home")
+                    navigate("/")
         })
         .catch(error=>{
             console.log(error)

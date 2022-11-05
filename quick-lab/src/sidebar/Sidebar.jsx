@@ -35,7 +35,7 @@ const Sidebar = ({chilren}) => {
    })
    .catch(error=>{
        console.log(error)
-   })
+   }) 
 }
   return (
     <div className="home-container-1">

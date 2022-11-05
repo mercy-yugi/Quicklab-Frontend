@@ -132,6 +132,25 @@
         font-size:30px;
         color: rgb(247, 227, 9);
     }
+    .pra{
+        width: 84px;
+        margin: 1% 1% 0% 10%;
+    
+    }
+    .image{
+        height: 50px; 
+    
+    }
+    .title{
+        font-size: 5px;
+        /* margin: 1; */
+    
+    }
+    .description{
+        /* font-size: 4px; */
+        font-weight: lighter;
+        font-size: xx-small;
+    }
     
 
 }

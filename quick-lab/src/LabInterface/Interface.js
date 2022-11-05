@@ -102,7 +102,7 @@ const navigate = useNavigate()
 
 
 const goHome = () => {
-  navigate('/home')
+  navigate('/')
 }
 
 const fetchPractical=()=>{

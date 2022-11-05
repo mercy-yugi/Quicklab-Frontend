@@ -29,7 +29,7 @@ export default function FormDialog({observation}) {
   const handleSecondClose=()=>{
     setSecondOpen(false)
     toast("Congratulations, you have successfully completed your practical with quicklab")
-    navigate('/home')
+    navigate('/')
     
   }
 
