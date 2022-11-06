@@ -51,7 +51,8 @@ const Practicals=()=>{
     const[title, setTitle]=useState('')
     const [practicals,setPracticals]=useState([])
     const [searchInput, setSearchInput] = useState('');
-  const [filteredResults, setFilteredResults] = useState(practicals);
+    const [filteredResults, setFilteredResults] = useState(practicals);
+    const [ previoustitle, setPreviousTitle]=useState('')
   const [details,setDetails] = useState({
     level: "",
     subject:"",
@@ -155,21 +156,9 @@ else{
         })
     }
     const len=filteredResults.length
-    
-    const getInstructions =() => {
-      practicals.map(item=>
-          console.log(item.instructions)
-      )
-
-    }
-    
-
-    // console.log(search)
-    // if(practicals.length!==0){
 
     return (
       <div className='practical_container'>
-{/* <Sidebar/> */}
 <form action="/" method="get">
       <div className='se_pro'>
       <div>
@@ -186,13 +175,6 @@ else{
           <BsPersonCircle className='profile'/>
           </div>
           </div>
-
-
-          {/* <Select className='dropdown' name="level" placeholder="Level" options={options}  
-                {...register("level")}
-                onChange={ level=>handleChange({target:{value:level.label, name:'level'}})}
-
-            /> */}
 
       
         <div className='options'>

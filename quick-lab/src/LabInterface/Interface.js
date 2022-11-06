@@ -84,6 +84,7 @@ export default function AlertDialog() {
   const[title, setTitle]=useState('')
   const [image,setImage]=useState('')
   const [instructions,setInstructions]=useState('')
+  const[observation, setObservation]=useState('')
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -101,7 +102,7 @@ const navigate = useNavigate()
 
 
 const goHome = () => {
-  navigate('/home')
+  navigate('/')
 }
 
 const fetchPractical=()=>{
@@ -117,19 +118,15 @@ const fetchPractical=()=>{
   axios.get("https://sheltered-earth-23604.herokuapp.com/api/instructions/")
 .then(res=>{
 
-    // console.log(res.data[0].practical)
     console.log(res.data)
   const filteredInst=res.data.filter(item=>{
   const practicalll= item.practical.find(pra=> pra.title==title)
-  // console.log(practicalll)
   if(practicalll){
+    setObservation(practicalll.observation)
     return item
   }
     }) 
-  // console.log(filteredInst)
   setInstructions(filteredInst) 
-  // console.log(res.data.)
-  // getInstructions(res.data, title)
 
  })
  .catch(error=>{
@@ -283,7 +280,7 @@ const fetchPractical=()=>{
       <div className='buttons'>
         <button className='clear'>CLEAR</button>
      
-        <div className='record'><Popper/></div>
+        <div className='record'><Popper observation={observation}/></div>
         
 
       </div>
