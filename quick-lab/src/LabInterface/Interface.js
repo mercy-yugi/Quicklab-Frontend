@@ -104,6 +104,12 @@ const navigate = useNavigate()
 const goHome = () => {
   navigate('/')
 }
+const settingImage=(item,e)=>{
+  setImage(item.image)
+  // console.log(e.name)
+  e.target.classList.remove("inst")
+  e.target.classList.add("active")
+}
 
 const fetchPractical=()=>{
   const title = JSON.parse(localStorage.getItem('title'));  
@@ -192,7 +198,7 @@ const fetchPractical=()=>{
                 
         </Typography>
           <div>{instructions.length !==0 ? instructions.map(item=>(
-            <p className='inst' onClick={(e)=>setImage(item.image)} > Step {instructions.indexOf(item)+1}: {item.title}</p>
+            <p className='inst'onClick={(e)=>{settingImage(item,e)}} > Step {instructions.indexOf(item)+1}: {item.title}</p>
           )) :<span>Instructions Loading</span>}</div>
          
         </List>
