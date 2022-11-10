@@ -6,8 +6,12 @@
     color: rgb(31, 179, 225);
     text-align: center;
 }
-.list{
-    /* background-color:#e8f6fe; */
+.active{
+    background-color: rgb(200, 239, 241);
+    padding: 3%;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 10px;
 }
 .appbar{
     background-color:#e8f6fe;
@@ -171,7 +175,7 @@
     margin-right: 2px;
     border-radius: 10px;
 }
-.inst:hover{
+.inst:hover, .active:hover{
     background-color: rgb(200, 239, 241);
     cursor: grab;
 }
