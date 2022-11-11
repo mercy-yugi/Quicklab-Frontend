@@ -18,6 +18,31 @@ export default function FormDialog({observation}) {
   const [open, setOpen] = React.useState(false);
   const [secondOpen,setSecondOpen]=React.useState(false)
 
+  const [explanation , setExplanation] = React.useState('')
+  const[observations, setObservation] = React.useState('')
+ const[explanationError, setExplanationError] = React.useState(false)
+ const[observationError, setObservationError] = React.useState(false)
+
+
+const handleSubmit = (e) => {
+       e.preventDefault()
+       setExplanationError(false)
+         setObservationError(false)
+       if (explanation === ''){
+         setExplanationError(true)
+       }
+       else if (observations === ''){
+        setObservationError(true)
+       }
+       else if (explanation && observations){
+        // console.log(observations)
+        handleClose()
+       }
+       else{
+        console.log('nothing here')
+       }
+  }
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -54,12 +79,22 @@ export default function FormDialog({observation}) {
         </DialogTitle>
         <DialogContent>
           <h4 style={{color: 'white'}}>Observation</h4>
-          <TextField id="outlined-basic"  multiline rows={3} placeholder='The color turned..'  style={{backgroundColor: 'white', width: '100%', borderRadius: '5px'}}/>
+          <TextField id="outlined-basic" 
+          onChange={(e) => setObservation(e.target.value) }
+           multiline rows={3} placeholder='The color turned..'  style={{backgroundColor: 'white', width: '100%', borderRadius: '5px'}}
+           error= {observationError}
+           />
           <h4 style={{color: 'white'}}>Explanation</h4>
-          <TextField id="outlined-basic" multiline rows={3} placeholder="Because ..." variant="outlined" style={{backgroundColor: 'white', width: '100%', borderRadius: '5px'}}/>
+          <TextField id="outlined-basic"
+            onChange={(e) => setExplanation(e.target.value) }
+            error= {explanationError}
+           multiline rows={3} placeholder="Because ..."
+            variant="outlined"
+             style={{backgroundColor: 'white', width: '100%', borderRadius: '5px'}}
+             required/>
         </DialogContent>
         <DialogActions>
-          <Button  color='primary' variant="contained" style={{width: '40%', marginRight: 'auto', marginLeft: 'auto' }} onClick={handleClose}>
+          <Button   color='primary' variant="contained" style={{width: '40%', marginRight: 'auto', marginLeft: 'auto' }} onClick={handleSubmit} >
             Save
           </Button>
         </DialogActions>
@@ -78,7 +113,7 @@ export default function FormDialog({observation}) {
         </DialogTitle>
         <DialogContent>
           <h4 style={{color: 'white'}}>Observation</h4>
-          <p id="outlined-basic" style={{backgroundColor: 'white', padding:'4%', width: '100%', borderRadius: '5px'}}>{observation} </p>
+          <p id="outlined-basic" style={{backgroundColor: 'white', padding:'4%', width: '100%', borderRadius: '5px'}}>{observation}  </p>
         </DialogContent>
         <DialogActions>
           <Button  color='primary' variant="contained" style={{width: '40%', marginRight: 'auto', marginLeft: 'auto'}} onClick={handleSecondClose}>

@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-operators */
 import cell from '../Images/Cell mutation.png'
 import flame from '../Images/Flame test.png'
 import elect from '../Images/Electrostatics.png'
@@ -29,22 +30,22 @@ const Practicals=()=>{
         { value: 'Biology', label: 'Biology' }
     
       ]
-      // const topics = [
-      //   { value: 'Titration', label: 'Titration' },
-      //   { value: 'ThemoChemistry', label: 'ThemoChemistry' },
-      //   { value: 'Flame Test', label: 'Flame Test' },
-      //   { value: 'Solubility', label: 'Solubility' },
-      //   { value: 'Pendulumbob', label: 'Pendulumbob' },
-      //   { value: 'Thermal Expansion', label: 'Thermal Expansion' },
-      //   { value: 'Heat Transfer', label: 'Heat Transfer' },
-      //   { value: 'Electrostatics', label: 'Electrostatics' },
-      //   { value: 'Dichotomous Key', label: 'Dichotomous Key' },
-      //   { value: 'Cell Mutation', label: 'Cell Mutation' },
-      //   { value: 'Transpiration', label: 'Transpiration' },
-      //   { value: 'Respiration', label: 'Respiration' },
-    
-      // ]
-    const [topics,setTopics]=useState([])
+const topics = [
+        { value: 'Titration', label: 'Titration' },
+        { value: 'ThemoChemistry', label: 'ThemoChemistry' },
+        { value: 'Flame Test', label: 'Flame Test' },
+        { value: 'Solubility', label: 'Solubility' },
+        { value: 'Pendulumbob', label: 'Pendulumbob' },
+        { value: 'Thermal Expansion', label: 'Thermal Expansion' },
+        { value: 'Heat Transfer', label: 'Heat Transfer' },
+        { value: 'Electrostatics', label: 'Electrostatics' },
+        { value: 'Dichotomous Key', label: 'Dichotomous Key' },
+        { value: 'Cell Mutation', label: 'Cell Mutation' },
+        { value: 'Transpiration', label: 'Transpiration' },
+        { value: 'Respiration', label: 'Respiration' },
+          
+      ]
+    // const [topics,setTopics]=useState([])
     const[level,setLevel]=useState('')
     const[subject,setSubject]=useState('')
     const[topic,setTopic]=useState('')
@@ -53,7 +54,7 @@ const Practicals=()=>{
     const [searchInput, setSearchInput] = useState('');
     const [filteredResults, setFilteredResults] = useState(practicals);
     const [ previoustitle, setPreviousTitle]=useState('')
-  const [details,setDetails] = useState({
+    const [details,setDetails] = useState({
     level: "",
     subject:"",
     topic:""        
@@ -98,20 +99,38 @@ else{
     useEffect(()=>{
         // e.preventDefault()
         fetchPractical()
-        handleDetails()
+        // handleDetails()
         localStorage.setItem('title', JSON.stringify(title));
         if(title!==''){
           navigate('/canvas')   
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[title])
-    useEffect(()=>{
-      console.log('level','subject','topic')
-    },[])
+    // useEffect(()=>{
+    //   console.log('level','subject','topic')
+    // },[])
 
     const getTopics=(practicals)=>{
       practicals.map(practical=>(
         topics.push({value:practical.title, label:practical.title})
        ))
+    }
+
+    const optionFilter = () => {
+      console.log('filtered data are ',filteredResults)
+      setTopic()
+      if (topic !== '') {
+        const filteredData = practicals.filter((item) => {
+            return Object.values(item.title).join('').toLowerCase().includes(topic.toLowerCase())
+        })
+        setFilteredResults(filteredData)
+        console.log(filteredData);
+    }
+    else{
+        setFilteredResults(practicals)
+       
+    }
+
     }
   
     const searchItems = (searchvalue) => {
@@ -180,17 +199,17 @@ else{
         <div className='options'>
           <div className='level'>
           <Select placeholder="Level" options={options} 
-          onChange={ level=>setLevel({target:{value:level.label}})}
+          onChange={ level=>handleDetails({target:{value:level.label}})}
           />
           </div>
           <div className='subject'>
           <Select placeholder="Subject" options={subjects}
-          onChange={ e=>setSubject(e.target.value.value)}
+          onChange={ subject=>handleDetails({target:{value:subject.label}})}
           />
           </div>
           <div className='topics'>
           <Select placeholder="Topics" options={topics}
-          onChange={ e=>setTopic(e.target.value.value)}
+          onChange={ topic=>handleDetails({target:{value:topic.label}})}
           />
           </div>
         

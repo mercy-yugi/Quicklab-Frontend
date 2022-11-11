@@ -284,7 +284,7 @@ const fetchPractical=()=>{
         </List>
       </Drawer>
       <div className='buttons'>
-        <button className='clear'>CLEAR</button>
+        <button className='clear' onClick={() => window.location.reload(false)}>CLEAR</button>
      
         <div className='record'><Popper observation={observation}/></div>
         
