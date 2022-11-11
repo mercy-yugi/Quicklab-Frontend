@@ -31,7 +31,7 @@ const handleSubmit = (e) => {
        if (explanation === ''){
          setExplanationError(true)
        }
-       else if (observations === ''){
+       if (observations === ''){
         setObservationError(true)
        }
        else if (explanation && observations){
