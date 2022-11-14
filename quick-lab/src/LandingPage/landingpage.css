@@ -1,0 +1,61 @@
+.logo{
+    margin-left: 7%;
+
+}
+
+.landingpg{
+    margin-top: 10%; 
+    display: flex;
+}
+
+
+.landingpg h1{
+    font-size: 30px;
+    color: #00A9E5;
+    margin-top: 3%;
+}
+
+.landingpg p{
+    font-size: 18px;
+    margin-top: 2%;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.getstartedbtn button{   
+    width: 300px;  
+    padding: 9px; 
+    color: white;  
+    background-color: #00A9E5; 
+    border: solid transparent;  
+    border-radius: 30px;  
+    font-size: 18px;
+    margin-top: 4%;
+   }
+.overview{
+    width: 50%;
+    text-align: center;
+}
+.video{
+    /* background-color: blue; */
+    width: 40%;
+}
+.demo{
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+
+}
+.watch{
+    text-align: center;
+    color: rgb(7, 185, 216);
+}
+.demo iframe{
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}

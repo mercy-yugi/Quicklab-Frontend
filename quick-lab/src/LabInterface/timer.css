@@ -1,0 +1,17 @@
+.timer-controller-container{
+  display: flex;
+  gap: 2rem;
+}
+.elapsed-time{
+  font-size: 12px;
+}
+.pauseplay{
+  margin-top:5%;
+}
+.reset{
+  margin-top:5%;
+}
+.recording{
+  color: red;
+  margin-top:5%;
+}

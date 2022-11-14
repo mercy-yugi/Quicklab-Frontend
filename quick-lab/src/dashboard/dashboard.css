@@ -1,0 +1,17 @@
+.dash{
+    display: flex;
+}
+.sd{
+    width: 20%;
+}
+.pr{
+    width: 80%;
+}
+@media screen and (max-width: 480px) {
+    .sd{
+        width: 30%;
+    }
+    .pr{
+        width: 70%;
+    }
+}

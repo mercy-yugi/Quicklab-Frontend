@@ -1,0 +1,217 @@
+.body{
+    overflow-x: hidden;
+}
+
+.instructions{
+    color: rgb(31, 179, 225);
+    text-align: center;
+}
+.active{
+    background-color: rgb(200, 239, 241);
+    padding: 3%;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 10px;
+}
+.appbar{
+    background-color:#e8f6fe;
+    color: rgb(122, 225, 248);
+    font-family: sans-serif;
+    font-style:bold;
+    /* padding:10px; */
+    
+}
+.listtext{
+    background-color: chartreuse;
+}
+.buttons{
+    margin-left:30%;
+    margin-top:2%;
+    margin-bottom: 2%;
+    display:flex;
+    /* width: contain; */
+
+}
+.record{
+    margin-left:5%;
+    padding:15px;
+    width:20%;
+    border-style: none;
+    color: whitesmoke;
+    border-radius:3px;
+    transition: transform 500ms ease;
+    cursor: grab;
+
+}
+.clear{
+    margin-left:5%;
+    border-radius:3px;
+    /* padding:15px; */
+    height:40px;
+    width:20%;
+    margin-top:1.5%;
+    background-color:rgb(160, 156, 156) ;
+    border-style: none;
+    color: whitesmoke;
+    transition: transform 500ms ease;
+    cursor: grab;
+
+}
+.clear:hover, .record:hover{
+    transform: scale(1.02);
+}
+/* .interface{
+    background-color: black;
+    box-sizing: border-box;
+
+} */
+.header{
+    display: flex; 
+}
+.timer{
+    float: right;
+    margin-left:150%;
+    color: black;
+    margin-top:-2%;
+    cursor: grab;
+}
+.heading1{
+    margin-top:8%;
+    color: rgb(4, 112, 126);
+}
+.home{
+    margin-left:15%;
+    margin-top:7%;
+    padding:2px;
+    background-color: rgb(255, 255, 255);
+    /* font-size:50px; */
+    border-radius:50%;
+    cursor: grab;
+}
+.main{
+    height: 85vh;
+    background-color: #e7eff3;
+}
+.drawer{
+    width: 1px;
+}
+.Box{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: rgba(6, 6, 6, 0.785);
+    display: grid;
+    
+}
+
+.white{
+    background-color: white;
+    padding: 8px;
+}
+
+.observation {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    display: grid;
+    margin-left: 18%;
+    margin-top: 9%;
+    grid-template-columns: 30%;
+    grid-template-rows: auto;
+
+    /* align-content: center;
+    justify-content: center; */
+    background-color: #00A9E5;
+    border-radius: 2%;
+}
+
+.observation input :focus{
+    margin-top: 4%;
+    text-align: center;
+    margin-left: -30%;
+}
+
+.observation h3{
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    margin-right: -250%;
+    
+}
+
+.observation h4{
+    color: white;
+    font-size: 20px;
+    margin-top: -15%;
+    text-align: center;
+    margin-right: -30%;
+}
+
+.save button{  
+    width: 350px;  
+    padding: 10px; 
+    margin-top:6%;
+    margin-left: 7%;
+    color: white;  
+    background-color: #a3e6ff; 
+    border: solid transparent;  
+    border-radius: 30px;  
+    font-size: 18px;
+}
+.flask{
+    font-size:30px;
+    margin-left:10%;
+}
+.filter{
+    font-size:30px;
+    margin-left:16%;
+}
+.micrscope{
+    font-size:30px;
+    margin-left:16%;
+}
+.inst{
+    background-color: rgb(248, 250, 250);
+    padding: 3%;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 10px;
+}
+.inst:hover, .active:hover{
+    background-color: rgb(200, 239, 241);
+    cursor: grab;
+}
+.pic-step{
+    margin-left: 25%;
+    margin-top: 3%;
+    /* align-content: center; */
+    width:350px;
+    /* height:350px; */
+}
+.start{
+    margin: 10% 0 0 40%;
+    background-color: white;
+    width: 30%;
+    text-align: center;
+    font-size: 20px;
+    padding: 5%;
+    color: rgb(10, 181, 204);
+
+}
+.tools div{
+    /* background-color: #f8fbfc; */
+    
+}
+.tools p{
+    font-size: 10px;
+    text-align: center;
+}
+.tool{
+    background-color: #f8fbfc;
+    width: 100px;
+    border-radius: 10px;
+    height: 120px; 
+    object-fit: contain;
+    margin-left: 25%;
+
+}
