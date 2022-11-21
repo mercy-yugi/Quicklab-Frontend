@@ -22,7 +22,7 @@ const Practicals=()=>{
         { value: 'FORM 4', label: 'Form 4' },
         { value: 'FORM 3', label: 'Form 3' },
         { value: 'FORM 2', label: 'Form 2' },
-        { value: 'FORM 1', label: 'Form 1' }
+        { value: 'FORM 1', label: 'Form1' }
       ]
       const subjects = [
         { value: 'Physics', label: 'Physics' },
@@ -60,43 +60,6 @@ const topics = [
     topic:""        
 })
 
-const handleDetails = ()=>{
-    // const {name,value} = e.target
-    // setDetails({
-    // ...details,//spread operator 
-    // [name]:value
-    // })
-    // console.log(details)
-// if(level!==''){
-//   const filteredData = practicals.filter(item => item.level==level )
-// setFilteredResults(filteredData)
-// }
-// else if(subject!==''){
-//   const filteredData = practicals.filter(item => item.subject==subject )
-// setFilteredResults(filteredData)
-// }
-// else if(topic!==''){
-//   const filteredData = practicals.filter(item =>Object.values(item.title).join('').toLowerCase().includes(topic.toLowerCase()))
-// setFilteredResults(filteredData)
-// }
-// else if(subject!=='' && level!==''){
-//   const filteredData = practicals.filter(item => item.level==level && item.subject==subject )
-//   setFilteredResults(filteredData)
-// }
-// else if(subject!=='' && level!=='' && details.topic!==''){
-//   const filteredData = practicals.filter(item => item.level==level && item.subject==subject && 
-//     Object.values(item.title).join('').toLowerCase().includes(topic.toLowerCase()))
-//   setFilteredResults(filteredData)
-// }
-
-
-// else{
-//   console.log('ahreee')
-//     setFilteredResults(practicals)
-   
-// }
-}
-
     useEffect(()=>{
         // e.preventDefault()
         fetchPractical()
@@ -107,32 +70,6 @@ const handleDetails = ()=>{
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[title])
-    // useEffect(()=>{
-    //   console.log('level','subject','topic')
-    // },[])
-
-    const getTopics=(practicals)=>{
-      practicals.map(practical=>(
-        topics.push({value:practical.title, label:practical.title})
-       ))
-    }
-
-    const optionFilter = () => {
-      console.log('filtered data are ',filteredResults)
-      setTopic()
-      if (topic !== '') {
-        const filteredData = practicals.filter((item) => {
-            return Object.values(item.title).join('').toLowerCase().includes(topic.toLowerCase())
-        })
-        setFilteredResults(filteredData)
-        console.log(filteredData);
-    }
-    else{
-        setFilteredResults(practicals)
-       
-    }
-
-    }
 
     const filterLevel = (practical)=>{
       const forms = practical.level
@@ -146,6 +83,20 @@ const handleDetails = ()=>{
       const topics = practical.title
       return !topic || topic === topics
     }
+    const filterSearch = (topic) => {
+      const searchTopic = topic.topic
+      return !searchTopic || searchTopic === practicals.title
+    }
+
+const filtration = practicals.filter(filterSubject).filter(filterLevel).filter(filterTopic).filter(filterSearch)
+console.log(filtration);
+    const getTopics=(practicals)=>{
+      practicals.map(practical=>(
+        topics.push({value:practical.title, label:practical.title})
+       ))
+    }
+
+
   
     const searchItems = (searchvalue) => {
       console.log('filtered data are ',filteredResults)
@@ -167,21 +118,12 @@ const handleDetails = ()=>{
         // setInstructions()
         console.log(value)  
       }
-    //   useEffect(()=>{
-    //     console.log(title)
-    //     localStorage.setItem('title', JSON.stringify(title));
-    //     if(title!==''){
-    //       navigate('/canvas')   
-    // }
-    // else{
-    //   console.log('You have not selected a practical')
-    // }
-    // }, [title])
+   
     const fetchPractical=()=>{
          axios.get(`${apiLink}/api/practicals/`)
     .then(res=>{
-        setPracticals(res.data)  
-        setFilteredResults(practicals)
+        setPracticals(res.data)
+        setFilteredResults(practicals)  
         getTopics(res.data)
        console.log(res.data)      
         })
@@ -189,7 +131,9 @@ const handleDetails = ()=>{
             console.log(error)
         })
     }
-    const len=filteredResults.length
+    const len=filteredResults.length && filtration.length
+  //  setPracticals(filtration)
+  
 
     return (
       <div className='practical_container'>
@@ -202,6 +146,8 @@ const handleDetails = ()=>{
             placeholder="Search practicals"
             name="s" 
             onChange={(e)=>{searchItems(e.target.value)}} 
+            // onChange={title=>{setSearchInput(title.value)}}
+
         /> 
         
         </div>
@@ -214,17 +160,17 @@ const handleDetails = ()=>{
         <div className='options'>
           <div className='level'>
           <Select placeholder="Level" options={options} 
-          onChange={ level=>handleDetails({target:{value:level.label}})}
+          onChange={level=>{setLevel(level.label)}}
           />
           </div>
           <div className='subject'>
           <Select placeholder="Subject" options={subjects}
-          onChange={ subject=>handleDetails({target:{value:subject.label}})}
+          onChange={subject=>{setSubject(subject.label)}}
           />
           </div>
           <div className='topics'>
           <Select placeholder="Topics" options={topics}
-          onChange={ topic=>handleDetails({target:{value:topic.label}})}
+          onChange={topic=>{setTopic(topic.label)}}
           />
           </div>
         
@@ -235,7 +181,7 @@ const handleDetails = ()=>{
         <div className='see_all'> <span>See all</span> <FaLongArrowAltRight className='arrow' /></div>
             
         {len>=1 && <div className='all_practicals'>
-          {filteredResults.slice(0,4).map(item=>(
+          {filtration.slice(0,4).map(item=>(
             <div className='one' key={item.title} onClick={value=>navigatetoInterface({value:item.title}.value)}>
             <img className='picture' src={`https://res.cloudinary.com/duuajd4sr/${item.image}`} alt='practical'/>
             <p className='practical_title'><b>{item.title}</b></p>
