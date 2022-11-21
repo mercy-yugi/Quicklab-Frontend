@@ -67,34 +67,35 @@ const handleDetails = ()=>{
     // [name]:value
     // })
     // console.log(details)
-if(level!==''){
-  const filteredData = practicals.filter(item => item.level==level )
-setFilteredResults(filteredData)
-}
-else if(subject!==''){
-  const filteredData = practicals.filter(item => item.subject==subject )
-setFilteredResults(filteredData)
-}
-else if(topic!==''){
-  const filteredData = practicals.filter(item =>Object.values(item.title).join('').toLowerCase().includes(topic.toLowerCase()))
-setFilteredResults(filteredData)
-}
-else if(subject!=='' && level!==''){
-  const filteredData = practicals.filter(item => item.level==level && item.subject==subject )
-  setFilteredResults(filteredData)
-}
-else if(subject!=='' && level!=='' && details.topic!==''){
-  const filteredData = practicals.filter(item => item.level==level && item.subject==subject && 
-    Object.values(item.title).join('').toLowerCase().includes(topic.toLowerCase()))
-  setFilteredResults(filteredData)
-}
+// if(level!==''){
+//   const filteredData = practicals.filter(item => item.level==level )
+// setFilteredResults(filteredData)
+// }
+// else if(subject!==''){
+//   const filteredData = practicals.filter(item => item.subject==subject )
+// setFilteredResults(filteredData)
+// }
+// else if(topic!==''){
+//   const filteredData = practicals.filter(item =>Object.values(item.title).join('').toLowerCase().includes(topic.toLowerCase()))
+// setFilteredResults(filteredData)
+// }
+// else if(subject!=='' && level!==''){
+//   const filteredData = practicals.filter(item => item.level==level && item.subject==subject )
+//   setFilteredResults(filteredData)
+// }
+// else if(subject!=='' && level!=='' && details.topic!==''){
+//   const filteredData = practicals.filter(item => item.level==level && item.subject==subject && 
+//     Object.values(item.title).join('').toLowerCase().includes(topic.toLowerCase()))
+//   setFilteredResults(filteredData)
+// }
 
 
-else{
-  console.log('ahreee')
-    setFilteredResults(practicals)
+// else{
+//   console.log('ahreee')
+//     setFilteredResults(practicals)
    
-}}
+// }
+}
 
     useEffect(()=>{
         // e.preventDefault()
@@ -132,6 +133,19 @@ else{
     }
 
     }
+
+    const filterLevel = (practical)=>{
+      const forms = practical.level
+      return !level || level === forms
+    }
+    const filterSubject = (practical)=>{
+      const subjects = practical.subject
+      return !subject || subject === subjects
+    }
+    const filterTopic = (practical)=>{
+      const topics = practical.title
+      return !topic || topic === topics
+    }
   
     const searchItems = (searchvalue) => {
       console.log('filtered data are ',filteredResults)
@@ -167,6 +181,7 @@ else{
          axios.get(`${apiLink}/api/practicals/`)
     .then(res=>{
         setPracticals(res.data)  
+        setFilteredResults(practicals)
         getTopics(res.data)
        console.log(res.data)      
         })
