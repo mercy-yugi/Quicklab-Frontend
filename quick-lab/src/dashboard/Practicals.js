@@ -90,6 +90,7 @@ const topics = [
 
 const filtration = practicals.filter(filterSubject).filter(filterLevel).filter(filterTopic).filter(filterSearch)
 console.log(filtration);
+// setFilteredResults(filtration)
     const getTopics=(practicals)=>{
       practicals.map(practical=>(
         topics.push({value:practical.title, label:practical.title})
@@ -131,7 +132,7 @@ console.log(filtration);
             console.log(error)
         })
     }
-    const len=filteredResults.length && filtration.length
+    const len=filteredResults.length || filtration.length
   //  setPracticals(filtration)
   
 
