@@ -1,17 +1,10 @@
-/* eslint-disable no-mixed-operators */
-import cell from '../Images/Cell mutation.png'
-import flame from '../Images/Flame test.png'
-import elect from '../Images/Electrostatics.png'
-import pend from '../Images/Pendulum bob.png'
-import solu from '../Images/Solubility.png'
-import themo from '../Images/Thermochemistry.png'
 import './practicals.css'
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useEffect, useState } from 'react';
 import axios from "axios";
-import {BsEmojiSmileFill,BsPersonCircle} from 'react-icons/bs';
+import {BsPersonCircle} from 'react-icons/bs';
 import Select from 'react-select'
-import { Link, useNavigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import Footer from '../Footer';
 
 
@@ -37,9 +30,9 @@ const topics = [
         { value: 'Solubility', label: 'Solubility' },
         { value: 'Pendulumbob', label: 'Pendulumbob' },
         { value: 'Thermal Expansion', label: 'Thermal Expansion' },
-        { value: 'Heat Transfer', label: 'Heat Transfer' },
+        { value: 'Acid-Base-Test', label: 'Acid-Base-Test' },
         { value: 'Electrostatics', label: 'Electrostatics' },
-        { value: 'Dichotomous Key', label: 'Dichotomous Key' },
+        { value: 'Paper Chromatography', label: 'Paper Chromatography' },
         { value: 'Cell Mutation', label: 'Cell Mutation' },
         { value: 'Transpiration', label: 'Transpiration' },
         { value: 'Respiration', label: 'Respiration' },
@@ -53,22 +46,13 @@ const topics = [
     const [practicals,setPracticals]=useState([])
     const [searchInput, setSearchInput] = useState('');
     const [filteredResults, setFilteredResults] = useState(practicals);
-    const [ previoustitle, setPreviousTitle]=useState('')
-    const [details,setDetails] = useState({
-    level: "",
-    subject:"",
-    topic:""        
-})
 
     useEffect(()=>{
-        // e.preventDefault()
         fetchPractical()
-        // handleDetails()
         localStorage.setItem('title', JSON.stringify(title));
         if(title!==''){
           navigate('/canvas')   
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[title])
 
     const filterLevel = (practical)=>{
@@ -81,16 +65,13 @@ const topics = [
     }
     const filterTopic = (practical)=>{
       const topics = practical.title
-      return !topic || topic === topics
+      return !topic || topic === topics 
     }
-    const filterSearch = (topic) => {
-      const searchTopic = topic.topic
-      return !searchTopic || searchTopic === practicals.title
+    const filterSearch = (practical) => {
+      return Object.values(practical.title).join('').toLowerCase().includes(searchInput.toLowerCase())
     }
 
 const filtration = practicals.filter(filterSubject).filter(filterLevel).filter(filterTopic).filter(filterSearch)
-console.log(filtration);
-// setFilteredResults(filtration)
     const getTopics=(practicals)=>{
       practicals.map(practical=>(
         topics.push({value:practical.title, label:practical.title})
@@ -98,29 +79,11 @@ console.log(filtration);
     }
 
 
-  
-    const searchItems = (searchvalue) => {
-      console.log('filtered data are ',filteredResults)
-        setSearchInput(searchvalue)
-        if (searchInput !== '') {
-          const filteredData = practicals.filter((item) => {
-              return Object.values(item.title).join('').toLowerCase().includes(searchInput.toLowerCase())
-          })
-          setFilteredResults(filteredData)
-      }
-      else{
-          setFilteredResults(practicals)
-         
-      }
-      }
       const navigatetoInterface = (value) => {
-        // e.preventDefault()
-        setTitle(value)
-        // setInstructions()
-        console.log(value)  
+        setTitle(value) 
       }
    
-    const fetchPractical=()=>{
+   const fetchPractical=()=>{
          axios.get(`${apiLink}/api/practicals/`)
     .then(res=>{
         setPracticals(res.data)
@@ -133,7 +96,6 @@ console.log(filtration);
         })
     }
     const len=filteredResults.length || filtration.length
-  //  setPracticals(filtration)
   
 
     return (
@@ -146,9 +108,7 @@ console.log(filtration);
             id="header-search"
             placeholder="Search practicals"
             name="s" 
-            onChange={(e)=>{searchItems(e.target.value)}} 
-            // onChange={title=>{setSearchInput(title.value)}}
-
+            onChange={(e)=>{setSearchInput(e.target.value)}} 
         /> 
         
         </div>

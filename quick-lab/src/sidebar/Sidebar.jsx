@@ -17,12 +17,12 @@ const Sidebar = ({chilren}) => {
    useEffect(()=>{
     const title = JSON.parse(localStorage.getItem('title'));  
     if (title) {
-      console.log(titlee, 'wowwwwww')
+      console.log(titlee)
         fetchPractical(title)
      
        }
      
-       console.log(previousPractical,'kkkkkkkkkkk')      
+       console.log(previousPractical)      
 
 
    })
